@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fun Fair - Billets</title>
+    <title>Fun Fer - Billets</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -16,7 +16,21 @@
         h1 {
             text-align: center;
             color: #ff6f61;
+            margin-bottom: 20px;
+        }
+
+        .offers {
+            text-align: center;
             margin-bottom: 40px;
+        }
+
+        .offer-item {
+            background-color: #2c2c2c;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            color: #ffa07a;
+            font-size: 1.1em;
         }
 
         .ticket-options {
@@ -89,6 +103,15 @@
 <body>
     <h1>Billets</h1>
 
+    <div class="offers">
+        <div class="offer-item">
+            🎄 <strong>Offre de Noël :</strong> -10% sur tous les billets ! Offre valable du 1er décembre au 31 décembre.
+        </div>
+        <div class="offer-item">
+            ☀️ <strong>Offre Vacances d'Été :</strong> Achetez un Pass Saison et obtenez 20% de réduction ! Offre valable du 1er juillet au 31 août.
+        </div>
+    </div>
+
     <div class="ticket-options">
         <div class="ticket-item">
             <h2>Billet Adulte</h2>
@@ -117,7 +140,7 @@
     </div>
 
     <div class="back-to-home">
-        <a href="../index.php">Retour à l'accueil</a>
+        <a href="index.html">Retour à l'accueil</a>
     </div>
 </body>
 </html>

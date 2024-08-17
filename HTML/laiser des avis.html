@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Fair - Laissez un Avis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #ff6f61;
+            margin-bottom: 40px;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #1e1e1e;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 4px;
+            background-color: #333;
+            color: #f0f0f0;
+        }
+
+        textarea {
+            resize: vertical;
+            height: 150px;
+        }
+
+        input[type="submit"] {
+            background-color: #ff6f61;
+            color: #121212;
+            border: none;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #ffa07a;
+        }
+
+        .back-to-home {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .back-to-home a {
+            color: #ff6f61;
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: color 0.3s;
+        }
+
+        .back-to-home a:hover {
+            color: #ffa07a;
+        }
+    </style>
+</head>
+<body>
+    <h1>Laissez un Avis</h1>
+
+    <form action="#" method="POST">
+        <label for="name">Nom :</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email :</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="rating">Note :</label>
+        <select id="rating" name="rating" required>
+            <option value="5">5 - Excellent</option>
+            <option value="4">4 - Très bien</option>
+            <option value="3">3 - Bien</option>
+            <option value="2">2 - Moyen</option>
+            <option value="1">1 - Mauvais</option>
+        </select>
+
+        <label for="message">Votre avis :</label>
+        <textarea id="message" name="message" required></textarea>
+
+        <input type="submit" value="Envoyer">
+    </form>
+
+    <div class="back-to-home">
+        <a href="index.html">Retour à l'accueil</a>
+    </div>
+</body>
+</html>
