@@ -19,6 +19,19 @@ include_once('./PHP/db.php');
 
 <body>
     <?php include 'PHP/nav.php'; ?>
+    <header>
+        <h1>Bienvenue à Fun Fer</h1>
+        <p>Le parc d'attractions où le plaisir ne s'arrête jamais !</p>
+    </header>
+
+    <nav>
+        <a href="#attractions">Attractions</a>
+        <a href="#horaires">Horaires</a>
+        <a href="#billets">Billets</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <a href="#billets" class="cta-button">Achetez vos billets maintenant</a>
     
     <footer>
         <div id="Credit">
