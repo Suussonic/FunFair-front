@@ -26,7 +26,7 @@ include_once('./PHP/db.php');
 
     <nav>
         <a href="HTML/attractions.html">Attractions</a>
-        <a href="#horaires">Horaires</a>
+        <a href="HTML/horaire.html">Horaires</a>
         <a href="#billets">Billets</a>
         <a href="#contact">Contact</a>
     </nav>
