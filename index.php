@@ -25,7 +25,7 @@ include_once('./PHP/db.php');
     </header>
 
     <nav>
-        <a href="HTML/attractions.html">Attractions</a>
+        <a href="attractions.html">Attractions</a>
         <a href="#horaires">Horaires</a>
         <a href="#billets">Billets</a>
         <a href="#contact">Contact</a>
