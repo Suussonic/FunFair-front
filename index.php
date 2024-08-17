@@ -20,7 +20,7 @@ include_once('./PHP/db.php');
 <body>
     <?php include 'PHP/nav.php'; ?>
     <header>
-        <h1>Bienvenue à Fun Fer</h1>
+        <h1>Bienvenue à Fun-Fair</h1>
         <p>Le parc d'attractions où le plaisir ne s'arrête jamais !</p>
     </header>
 
@@ -32,7 +32,7 @@ include_once('./PHP/db.php');
     </nav>
 
     <a href="#billets" class="cta-button">Achetez vos billets maintenant</a>
-    
+
     <footer>
         <div id="Credit">
             <p>© 2024, Fun-Fair. Les autres marques, images ou noms de produit appartiennent à leurs propriétaires respectifs.</p>
