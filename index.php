@@ -27,11 +27,11 @@ include_once('./PHP/db.php');
     <nav>
         <a href="HTML/attractions.html">Attractions</a>
         <a href="HTML/horaire.html">Horaires</a>
-        <a href="#billets">Billets</a>
-        <a href="#contact">Contact</a>
+        <a href="HTML/billets.html">Billets</a>
+        <a href="HTML/contact.html">Contact</a>
     </nav>
 
-    <a href="#billets" class="cta-button">Achetez vos billets maintenant</a>
+    <a href="HTML/billets.html" class="cta-button">Achetez vos billets maintenant</a>
 
     <footer>
         <div id="Credit">
