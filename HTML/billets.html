@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Fair - Billets</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #ff6f61;
+            margin-bottom: 40px;
+        }
+
+        .ticket-options {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .ticket-item {
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            margin-bottom: 20px;
+            width: 80%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .ticket-item h2 {
+            color: #ff6f61;
+            margin-bottom: 10px;
+        }
+
+        .ticket-item p {
+            font-size: 1.1em;
+            margin: 10px 0;
+        }
+
+        .price {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #ffa07a;
+        }
+
+        .buy-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 15px;
+            font-size: 1.1em;
+            background-color: #ff6f61;
+            color: #121212;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .buy-button:hover {
+            background-color: #ffa07a;
+        }
+
+        .back-to-home {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .back-to-home a {
+            color: #ff6f61;
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: color 0.3s;
+        }
+
+        .back-to-home a:hover {
+            color: #ffa07a;
+        }
+    </style>
+</head>
+<body>
+    <h1>Billets</h1>
+
+    <div class="ticket-options">
+        <div class="ticket-item">
+            <h2>Billet Adulte</h2>
+            <p>Accès illimité à toutes les attractions du parc pour une journée complète.</p>
+            <p class="price">25€</p>
+            <a href="#" class="buy-button">Acheter</a>
+        </div>
+        <div class="ticket-item">
+            <h2>Billet Enfant</h2>
+            <p>Accès illimité pour les enfants de moins de 12 ans à toutes les attractions adaptées.</p>
+            <p class="price">15€</p>
+            <a href="#" class="buy-button">Acheter</a>
+        </div>
+        <div class="ticket-item">
+            <h2>Billet Famille</h2>
+            <p>Offre spéciale pour les familles : 2 adultes + 2 enfants.</p>
+            <p class="price">70€</p>
+            <a href="#" class="buy-button">Acheter</a>
+        </div>
+        <div class="ticket-item">
+            <h2>Pass Saison</h2>
+            <p>Accès illimité au parc pendant toute la saison.</p>
+            <p class="price">120€</p>
+            <a href="#" class="buy-button">Acheter</a>
+        </div>
+    </div>
+
+    <div class="back-to-home">
+        <a href="../index.php">Retour à l'accueil</a>
+    </div>
+</body>
+</html>
