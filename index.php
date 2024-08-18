@@ -5,34 +5,90 @@ include_once('./PHP/db.php');
 
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-    <meta charset="sUTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="ASSET/CARDBINDEX V5.png" type="image/x-icon">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    <link rel="stylesheet" href="CSS/Index.css">
-    <?php include 'PHP/theme.php'; ?>
-    <title>Accueil</title>
-</head>
+    <title>Fun Fair - Parc d'Attractions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
 
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #ff6f61;
+            margin: 0;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+
+        nav {
+            margin-top: 20px;
+        }
+
+        nav a {
+            color: #ff6f61;
+            text-decoration: none;
+            font-size: 1.2em;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffa07a;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            margin-top: 30px;
+            font-size: 1.2em;
+            background-color: #ff6f61;
+            color: #121212;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #ffa07a;
+        }
+    </style>
+</head>
 <body>
-    <?php include 'PHP/nav.php'; ?>
     <header>
-        <h1>Bienvenue à Fun-Fair</h1>
+        <h1>Bienvenue à Fun Fair</h1>
         <p>Le parc d'attractions où le plaisir ne s'arrête jamais !</p>
     </header>
 
     <nav>
-        <a href="HTML/attractions.html">Attractions</a>
-        <a href="HTML/horaire.html">Horaires</a>
-        <a href="HTML/billets.html">Billets</a>
-        <a href="HTML/contact.html">Contact</a>
+        <a href="attractions.html">Attractions</a>
+        <a href="#horaires">Horaires</a>
+        <a href="#billets">Billets</a>
+        <a href="avis.html">Laissez un Avis</a>
+        <a href="#contact">Contact</a>
     </nav>
 
-    <a href="HTML/billets.html" class="cta-button">Achetez vos billets maintenant</a>
-
+    <a href="attractions.html" class="cta-button">Découvrez nos attractions</a>
+    
     <footer>
         <div id="Credit">
             <p>© 2024, Fun-Fair. Les autres marques, images ou noms de produit appartiennent à leurs propriétaires respectifs.</p>
