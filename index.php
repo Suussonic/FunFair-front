@@ -123,7 +123,7 @@ include_once('./PHP/db.php');
 
     <nav>
         <a href="HTML/attractions.html">Attractions</a>
-        <a href="HTML/horaires.html">Horaires</a>
+        <a href="HTML/horaire.html">Horaires</a>
         <a href="HTML/billets.html">Billets</a>
         <a href="HTML/avis.html">Laissez un Avis</a>
         <a href="HTML/contact.html">Contact</a>
