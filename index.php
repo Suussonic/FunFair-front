@@ -80,14 +80,14 @@ include_once('./PHP/db.php');
     </header>
 
     <nav>
-        <a href="attractions.html">Attractions</a>
-        <a href="#horaires">Horaires</a>
-        <a href="#billets">Billets</a>
-        <a href="avis.html">Laissez un Avis</a>
-        <a href="#contact">Contact</a>
+        <a href="HTML/attractions.html">Attractions</a>
+        <a href="HTML/horaires.html">Horaires</a>
+        <a href="HTML/billets.html">Billets</a>
+        <a href="HTML/avis.html">Laissez un Avis</a>
+        <a href="HTML/contact.html">Contact</a>
     </nav>
 
-    <a href="attractions.html" class="cta-button">Découvrez nos attractions</a>
+    <a href="HTML/attractions.html" class="cta-button">Découvrez nos attractions</a>
     
     <footer>
         <div id="Credit">
