@@ -101,3 +101,31 @@ body {
         footer img:hover {
             transform: scale(1.2);
         }
+            nav a {
+                margin: 0 15px;
+                color: #ffffff;
+                text-decoration: none;
+                font-size: 1.2em;
+                transition: color 0.3s;
+            }
+            
+            nav a:hover {
+                color: #ffa07a;
+            }
+            
+            
+            .cta-button {
+                display: inline-block;
+                margin-top: 20px;
+                padding: 15px 30px;
+                background-color: #ff6f61;
+                color: #ffffff;
+                text-decoration: none;
+                font-size: 1.2em;
+                border-radius: 8px;
+                transition: background-color 0.3s;
+            }
+            
+            .cta-button:hover {
+                background-color: #ffa07a;
+            }
