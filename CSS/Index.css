@@ -1,269 +1,103 @@
-@font-face {
-    font-family: 'MADE Mirage';
-    src: url('../ASSET/MADEMirage-Bold.woff2') format('woff2'),
-        url('../ASSET/MADEMirage-Bold.woff') format('woff');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
-}
-
 body {
-    margin: 0;
-    font-family: 'MADE Mirage';
-    height: auto;
-    align-items: center;
-}
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
 
-p {
-    margin: 0px;
-}
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
 
-header {
-    display: flex;
-    margin-top: 20px;
-    margin-left: 40px;
-    margin-right: 40px;
-    background-color: #555962;
-    height: 80px;
-    align-items: center;
-    color: white;
-    justify-content: space-around;
-    border-radius: 15px;
-}
+        h1 {
+            font-size: 3em;
+            color: #ff6f61;
+            margin: 0;
+        }
 
-header img {
-    width: 64px;
-    margin: 8px;
-}
+        p {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
 
-header a {
-    text-align: center;
-    align-items: center;
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-}
+        nav {
+            margin-top: 20px;
+        }
 
-header a:hover {
-    text-decoration: none;
-    color: rgb(59, 59, 255);
-    font-weight: bold;
-    font-size: 120%;
-}
+        nav a {
+            color: #ff6f61;
+            text-decoration: none;
+            font-size: 1.2em;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
 
-#recherche {
-    color: white;
-    width: auto;
-    background-color: #26272C;
-    height: 60px;
-    border-radius: 16px;
-    border: none;
-    padding-left: 30px;
-    font-size: 30px;
-}
+        nav a:hover {
+            color: #ffa07a;
+        }
 
-.Connexion {
-    margin-left: 10%;
-}
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            margin-top: 30px;
+            font-size: 1.2em;
+            background-color: #ff6f61;
+            color: #121212;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
 
-#param {
-    padding-left: 15px;
-    padding-right: 15px;
-}
+        .cta-button:hover {
+            background-color: #ffa07a;
+        }
 
-#param img {
-    width: 40px;
-}
+        footer {
+            margin-top: auto;
+            background-color: #1f1f1f;
+            width: 100%;
+            padding: 20px 0;
+            text-align: center;
+        }
 
-@media screen and (max-width: 860px) {
-    #recherche {
-        width: 210px;
-        font-size: 15px;
-        height: 40px;
-    }
+        footer p {
+            font-size: 0.9em;
+            margin: 5px 0;
+            color: #a0a0a0;
+        }
 
-    header {
-        width: 80%;
-        margin-left: auto;
-        margin-right: auto;
-        height: 50px;
-    }
+        footer h2 {
+            font-size: 1.2em;
+            color: #f0f0f0;
+            margin: 10px 0;
+        }
 
-    header a,
-    header input {
-        padding-left: 10px;
-        padding-right: 10px;
-        width: 15%;
-    }
+        footer a {
+            color: #ff6f61;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
 
-    header a img {
-        padding-left: 10px;
-        padding-right: 10px;
-        width: 64px;
-    }
-}
+        footer a:hover {
+            color: #ffa07a;
+        }
 
-@media screen and (max-width: 660px) {
-    #recherche {
-        width: 210px;
-        font-size: 15px;
-        height: 40px;
-    }
+        footer img {
+            margin-top: 10px;
+            width: 24px;
+            height: 24px;
+            transition: transform 0.3s;
+        }
 
-    header {
-        width: 80%;
-        margin-left: auto;
-        margin-right: auto;
-        height: 50px;
-    }
-
-    header a,
-    header input {
-        padding-left: 10px;
-        padding-right: 10px;
-        width: 15%;
-    }
-
-    header a img {
-        padding-left: 10px;
-        padding-right: 10px;
-        width: 64px;
-    }
-}
-
-header {
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-h1 {
-    font-size: 3em;
-    color: #ff6f61;
-    margin: 0;
-}
-
-p {
-    font-size: 1.2em;
-    margin: 10px 0;
-}
-
-nav {
-    margin-top: 20px;
-}
-
-nav a {
-    color: #ff6f61;
-    text-decoration: none;
-    font-size: 1.2em;
-    margin: 0 15px;
-    transition: color 0.3s;
-}
-
-nav a:hover {
-    color: #ffa07a;
-}
-
-.cta-button {
-    display: inline-block;
-    padding: 15px 30px;
-    margin-top: 30px;
-    font-size: 1.2em;
-    background-color: #ff6f61;
-    color: #121212;
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background-color 0.3s;
-}
-
-.cta-button:hover {
-    background-color: #ffa07a;
-}
-
-footer {
-    display: flex;
-    padding-left: 2%;
-    padding-right: 2%;
-    background-color: #024A8D;
-    margin-top: 50px;
-    padding-top: 2%;
-    height: 250px;
-    align-items: center;
-    width: 100%;
-    color: white;
-    justify-content: space-around;
-    font-size: 25px;
-}
-
-#Credit {
-    width: 700px;
-}
-
-footer #Lien {
-    display: block;
-    align-items: center;
-    padding-left: auto;
-    padding-right: auto;
-}
-
-#Lien {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    font-size: 40px;
-    width: 500px;
-}
-
-h2 {
-    width: auto;
-    font-size: 25px;
-    padding-top: 2px;
-    padding-bottom: 2px;
-}
-
-footer img {
-    width: 64px;
-    height: 64px;
-    border-radius: 0px;
-    margin-left: 15px;
-    margin-right: 15px;
-    padding-top: 2px;
-}
-
-@media screen and (max-width: 1250px) {
-    #carouselExampleAutoplaying {
-        width: 85%;
-        border-radius: 20px;
-        padding: 0;
-        margin-top: 20px;
-        margin-left: auto;
-    }
-}
-
-@media screen and (max-width: 1050px) {
-
-    ul a,
-    body li,
-    body ul {
-        width: 80%;
-        height: 80%;
-        font-size: 100%;
-        padding-top: 5px;
-        padding-bottom: 5px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    footer {
-        height: auto;
-    }
-}
-
-@media screen and (max-width: 1040px) {
-
-    #banniere,
-    #banniere img {
-        width: 90%;
-        margin-right: 0;
-    }
-}
+        footer img:hover {
+            transform: scale(1.2);
+        }
