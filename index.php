@@ -24,6 +24,7 @@ include_once('./PHP/db.php');
         <a href="HTML/billets.html">Billets</a>
         <a href="HTML/avis.html">Laissez un Avis</a>
         <a href="HTML/contact.html">Contact</a>
+        <a href="HTML/forum.html">Forum</a>
     </nav>
 
     <a href="HTML/attractions.html" class="cta-button">Découvrez nos attractions</a>
