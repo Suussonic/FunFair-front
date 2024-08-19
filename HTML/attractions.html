@@ -13,7 +13,7 @@
     <div class="filter">
         <label for="ageFilter">Filtrer par âge minimum:</label>
         <select id="ageFilter" onchange="filterAttractions()">
-            <option value="all">Tous les âges</option>
+            <option>Tous les âges</option>
             <option value="0">0+</option>
             <option value="5">5+</option>
             <option value="10">10+</option>
@@ -71,12 +71,12 @@
 
     <script>
         function filterAttractions() {
-            const filterValue = document.getElementById('ageFilter').value;
+            const filterValue = parseInt(document.getElementById('ageFilter').value);
             const attractions = document.querySelectorAll('.attraction-item');
 
             attractions.forEach(attraction => {
-                const attractionAge = attraction.getAttribute('data-age');
-                if (filterValue === 'all' || attractionAge <= filterValue) {
+                const attractionAge = parseInt(attraction.getAttribute('data-age'));
+                if (isNaN(filterValue) || attractionAge == filterValue) {
                     attraction.style.display = 'block';
                 } else {
                     attraction.style.display = 'none';
