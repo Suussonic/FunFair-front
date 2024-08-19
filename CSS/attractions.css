@@ -58,6 +58,25 @@
             font-weight: bold;
         }
 
+        /* Style du bouton RÃ©server */
+        .reserve-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ff6f61;
+            color: #121212;
+            text-align: center;
+            font-size: 1em;
+            font-weight: bold;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            margin-top: 15px;
+        }
+        
+        .reserve-button:hover {
+            background-color: #ffa07a;
+        }
+
         .back-to-home {
             text-align: center;
             margin-top: 30px;
