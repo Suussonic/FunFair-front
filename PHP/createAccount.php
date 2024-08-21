@@ -28,23 +28,22 @@ if (isset($_POST['captcha_answer']) && isset($_POST['captcha_id'])) {
 
         // Vérifier la validité du mot de passe
         if (verifierMotDePasse($pass)) {
-            $passHash = password_hash($pass, PASSWORD_BCRYPT);
+            $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
             $insertUser = "
-            INSERT INTO users (id, firstname, lastname, email, password, gender)
-            VALUES (:id, :firstname, :lastname, :email, :password, :gender)
+                INSERT INTO users (firstname, lastname, email, password, gender)
+                VALUES (:firstname, :lastname, :email, :password, :gender)
             ";
 
             $preparedQuery = $dbh->prepare($insertUser);
             $preparedQuery->execute([
-                'id' => $someUniqueId,  // Vous devez définir $someUniqueId
                 'firstname' => $firstname,
                 'lastname' => $lastname,
                 'email' => $email,
-                'password' => $passHash,
+                'password' => $hashedPassword,
                 'gender' => $gender,
             ]);
-
+            
             // Rediriger vers la page de connexion après une inscription réussie
             header("Location: loginForm.php");
             exit;
