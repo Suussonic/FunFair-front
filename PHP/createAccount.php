@@ -31,17 +31,13 @@ if (isset($_POST['captcha_answer']) && isset($_POST['captcha_id'])) {
             $passHash = password_hash($pass, PASSWORD_BCRYPT);
 
             $insertUser = "
-            INSERT INTO users (firstname, lastname, email, password, gender)
-            VALUES (:firstname, :lastname, :email, :password, :gender)
+            INSERT INTO users (id, firstname, lastname, email, password, gender)
+            VALUES (:id, :firstname, :lastname, :email, :password, :gender)
             ";
 
             $preparedQuery = $dbh->prepare($insertUser);
-
-            if ($preparedQuery === false) {
-                die('Erreur lors de la préparation de la requête : ' . htmlspecialchars($dbh->errorInfo()[2]));
-            }
-
             $preparedQuery->execute([
+                'id' => $someUniqueId, // Assurez-vous de fournir une valeur unique ici
                 'firstname' => $firstname,
                 'lastname' => $lastname,
                 'email' => $email,
