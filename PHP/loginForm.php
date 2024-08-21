@@ -1,7 +1,7 @@
 <?php
 // Inclure le fichier de connexion à la base de données et les fonctions de logging
 require_once('db.php');
-//include('logs.php');
+include('logs.php');
 
 $errorInfo = false;
 
@@ -30,27 +30,21 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
     $user = $preparedLoginRequest->fetch(PDO::FETCH_ASSOC);
 
     // Vérifier si l'utilisateur existe et si le mot de passe est correct
-    try {
-        if ($user && password_verify($password, $user['password'])) {
-            session_start();
-            // Store user information in the session
-            $_SESSION['userId'] = $user['id'];
-            $_SESSION['firstname'] = $user['firstname'];
-            $_SESSION['lastname'] = $user['lastname'];
-            $_SESSION['user'] = $user;
-    
-            insert_logs('connexion');
-    
-            header('Location: ../index.php');
-            exit;
-        } else {
-            $errorInfo = 'Identifiant ou mot de passe incorrect.';
-        }
-    } catch (PDOException $e) {
-        $errorInfo = 'Erreur lors de l\'exécution de la requête SQL : ' . $e->getMessage();
-    } catch (Exception $e) {
-        $errorInfo = 'Une erreur inattendue est survenue : ' . $e->getMessage();
+    if ($user && password_verify($password, $user['password'])) {
+        session_start();
+        // Stocker les informations utilisateur dans la session
+        $_SESSION['userId'] = $user['id'];
+        $_SESSION['firstname'] = $user['firstname'];
+        $_SESSION['lastname'] = $user['lastname'];
+        $_SESSION['user'] = $user;
+
+        insert_logs('connexion');
+        header('https://funfair.ovh/'); // Rediriger vers la page d'accueil
+        exit;
+    } else {
+        $errorInfo = true;
     }
+}
 ?>
 
 <!DOCTYPE html>
