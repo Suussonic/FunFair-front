@@ -1,5 +1,4 @@
 <?php
-global $dbh;
 require_once('db.php');
 include('logs.php');
 
@@ -10,7 +9,7 @@ if (!$dbh) {
 }
 
 if (isset($_POST['email']) && isset($_POST['password'])) {
-    $email = $_POST['email'];
+    $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
     $password = $_POST['password'];
 
     $loginSql = 'SELECT * FROM users WHERE email = :email';
@@ -23,7 +22,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 
     $preparedLoginRequest->execute(['email' => $email]);
 
-    $user = $preparedLoginRequest->fetch();
+    $user = $preparedLoginRequest->fetch(PDO::FETCH_ASSOC);
     var_dump($user); // Affiche les informations utilisateur pour debugging
 
     if ($user) {
@@ -33,10 +32,11 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
             $_SESSION['firstname'] = $user['firstname'];
             $_SESSION['lastname'] = $user['lastname'];
             $_SESSION['user'] = $user;
-            $_SESSION['theme'] = $user['theme'];
+            $_SESSION['theme'] = $user['theme'] ?? 'default'; // Si le champ theme existe
 
             insert_logs('connexion');
             header('location:../index.php');
+            exit;
         } else {
             $errorInfo = true;
         }
@@ -78,7 +78,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
             <div id="btn2">S'inscrire</div>
         </a>
     </form>
-    <p>Mot de passe oublier ? <u style="color:#f1c40f;">Cliquez ici !</u></p>
+    <p>Mot de passe oublié ? <u style="color:#f1c40f;">Cliquez ici !</u></p>
 </body>
 
 </html>
