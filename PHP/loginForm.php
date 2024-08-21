@@ -5,6 +5,10 @@ include('logs.php');
 
 $errorInfo = false;
 
+if (!$dbh) {
+    die('Connexion à la base de données échouée.');
+}
+
 if (isset($_POST['email']) && isset($_POST['password'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
@@ -12,9 +16,17 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
     $loginSql = 'SELECT * FROM users WHERE email = :email';
 
     $preparedLoginRequest = $dbh->prepare($loginSql);
+
+    if (!$preparedLoginRequest) {
+        die('Erreur lors de la préparation de la requête SQL : ' . implode(", ", $dbh->errorInfo()));
+    }
+
     $preparedLoginRequest->execute(['email' => $email]);
 
-    if ($user = $preparedLoginRequest->fetch()) {
+    $user = $preparedLoginRequest->fetch();
+    var_dump($user); // Affiche les informations utilisateur pour debugging
+
+    if ($user) {
         if (password_verify($password, $user['password'])) {
             session_start();
             $_SESSION['userId'] = $user['id'];
@@ -28,7 +40,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
         } else {
             $errorInfo = true;
         }
-    }else{
+    } else {
         $errorInfo = true;
     }
 }
@@ -43,7 +55,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="shortcut icon" href="../ASSET/CARDBINDEX V5.png" type="image/x-icon">
     <link rel="stylesheet" href="../CSS/LoginForm.css">
-    <?php include './theme.php'; ?>
+    <?php include 'theme.php'; ?>
     <title>Connexion</title>
 </head>
 
