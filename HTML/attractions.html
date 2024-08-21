@@ -4,91 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fun Fair - Attractions</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #121212;
-            color: #f0f0f0;
-            margin: 0;
-            padding: 20px;
-        }
-
-        h1 {
-            text-align: center;
-            color: #ff6f61;
-            margin-bottom: 40px;
-        }
-
-        .filter {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .filter label {
-            font-size: 1.2em;
-            margin-right: 10px;
-        }
-
-        .filter select {
-            padding: 5px 10px;
-            font-size: 1em;
-            background-color: #2c2c2c;
-            color: #f0f0f0;
-            border: none;
-            border-radius: 5px;
-        }
-
-        .attraction-list {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .attraction-item {
-            padding: 20px;
-            background-color: #1e1e1e;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        }
-
-        .attraction-item h2 {
-            color: #ff6f61;
-            margin-bottom: 10px;
-        }
-
-        .attraction-item p {
-            margin: 5px 0;
-        }
-
-        .age-requirement {
-            color: #ffa07a;
-            font-weight: bold;
-        }
-
-        .back-to-home {
-            text-align: center;
-            margin-top: 30px;
-        }
-
-        .back-to-home a {
-            color: #ff6f61;
-            text-decoration: none;
-            font-size: 1.2em;
-            transition: color 0.3s;
-        }
-
-        .back-to-home a:hover {
-            color: #ffa07a;
-        }
-    </style>
+    <link rel="stylesheet" href="../CSS/attractions.css">
 </head>
-<body>
+
+    <body>
     <h1>Nos Attractions</h1>
 
     <div class="filter">
         <label for="ageFilter">Filtrer par âge minimum:</label>
         <select id="ageFilter" onchange="filterAttractions()">
-            <option value="all">Tous les âges</option>
+            <option>Tous les âges</option>
             <option value="0">0+</option>
             <option value="5">5+</option>
             <option value="10">10+</option>
@@ -101,42 +26,50 @@
             <h2>Le Petit Train</h2>
             <p>Une balade tranquille à travers le parc pour toute la famille.</p>
             <p class="age-requirement">Âge minimum: 0+</p>
+            <a class="reserve-button" href="resa_petit_train.html">Réserver</a>
         </div>
         <div class="attraction-item" data-age="5">
             <h2>La Grande Roue</h2>
             <p>Profitez d'une vue imprenable sur le parc depuis les hauteurs.</p>
             <p class="age-requirement">Âge minimum: 5+</p>
+            <a class="reserve-button" href="resa_grande_roue.html">Réserver</a>
         </div>
         <div class="attraction-item" data-age="10">
             <h2>Les Montagnes Russes</h2>
             <p>Des sensations fortes garanties pour les amateurs d'adrénaline.</p>
             <p class="age-requirement">Âge minimum: 10+</p>
+            <a class="reserve-button" href="resa_montagnes_russes.html">Réserver</a>
         </div>
         <div class="attraction-item" data-age="15">
             <h2>Le Manoir Hanté</h2>
             <p>Oserez-vous entrer dans ce manoir effrayant ? Âmes sensibles s'abstenir.</p>
             <p class="age-requirement">Âge minimum: 15+</p>
+            <a class="reserve-button" href="resa_manoir_hante.html">Réserver</a>
         </div>
         <!-- Nouvelles attractions -->
         <div class="attraction-item" data-age="5">
             <h2>Les Tasses Tournantes</h2>
             <p>Faites tourner votre tasse à toute vitesse, un classique pour les plus jeunes.</p>
             <p class="age-requirement">Âge minimum: 5+</p>
+            <a class="reserve-button" href="resa_tasses_tournantes.html">Réserver</a>
         </div>
         <div class="attraction-item" data-age="10">
             <h2>La Rivière Sauvage</h2>
             <p>Une descente aquatique pleine de rebondissements et de surprises.</p>
             <p class="age-requirement">Âge minimum: 10+</p>
+            <a class="reserve-button" href="resa_riviere_sauvage.html">Réserver</a>
         </div>
         <div class="attraction-item" data-age="0">
             <h2>Le Carrousel</h2>
             <p>Un tour de manège enchanteur pour les petits et les grands.</p>
             <p class="age-requirement">Âge minimum: 0+</p>
+            <a class="reserve-button" href="resa_carrousel.html">Réserver</a>
         </div>
         <div class="attraction-item" data-age="15">
             <h2>La Tour de Chute Libre</h2>
             <p>Faites le grand saut depuis les hauteurs et ressentez l'adrénaline pure.</p>
             <p class="age-requirement">Âge minimum: 15+</p>
+            <a class="reserve-button" href="resa_tour_chute_libre.html">Réserver</a>
         </div>
     </div>
 
@@ -146,12 +79,12 @@
 
     <script>
         function filterAttractions() {
-            const filterValue = document.getElementById('ageFilter').value;
+            const filterValue = parseInt(document.getElementById('ageFilter').value);
             const attractions = document.querySelectorAll('.attraction-item');
 
             attractions.forEach(attraction => {
-                const attractionAge = attraction.getAttribute('data-age');
-                if (filterValue === 'all' || attractionAge <= filterValue) {
+                const attractionAge = parseInt(attraction.getAttribute('data-age'));
+                if (isNaN(filterValue) || attractionAge == filterValue) {
                     attraction.style.display = 'block';
                 } else {
                     attraction.style.display = 'none';

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Fair - Laissez un Avis</title>
+    <link rel="stylesheet" href="../CSS/avis.css">
+</head>
+    
+<body>
+    <h1>Laissez un Avis</h1>
+
+    <form action="#" method="POST">
+        <label for="name">Nom :</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email :</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="rating">Note :</label>
+        <select id="rating" name="rating" required>
+            <option value="5">5 - Excellent</option>
+            <option value="4">4 - Très bien</option>
+            <option value="3">3 - Bien</option>
+            <option value="2">2 - Moyen</option>
+            <option value="1">1 - Mauvais</option>
+        </select>
+
+        <label for="message">Votre avis :</label>
+        <textarea id="message" name="message" required></textarea>
+
+        <input type="submit" value="Envoyer">
+    </form>
+
+    <div class="back-to-home">
+        <a href="../index.php">Retour à l'accueil</a>
+    </div>
+</body>
+</html>
