@@ -1,7 +1,7 @@
 <?php
 require 'config/routes.php';
 
-$uriPath = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+$uriPath = parse_url($_SERVER['REQUEST_URI'])['path'];
 
 $filePath = __DIR__ . '/../public' . $uriPath;
 
@@ -21,7 +21,7 @@ function urlToController($uriPath, $routes)
 function abort($code = 404)
 {
     http_response_code($code);
-    require __DIR__ . "/views/$code.php";
+    require "views/$code.php";
     exit();
 }
 
