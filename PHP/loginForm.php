@@ -1,7 +1,7 @@
 <?php
 global $dbh;
 require_once('db.php');
-include('../BACK/logs.php');
+include('logs.php');
 
 $errorInfo = false;
 
