@@ -28,7 +28,7 @@ if (isset($_POST['captcha_answer']) && isset($_POST['captcha_id'])) {
 
         // Vérifier la validité du mot de passe
         if (verifierMotDePasse($pass)) {
-            $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+            $hashedPassword = password_hash($pass, PASSWORD_BCRYPT);
 
             $insertUser = "
                 INSERT INTO users (firstname, lastname, email, password, gender)
