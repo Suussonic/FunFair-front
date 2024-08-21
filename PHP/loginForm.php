@@ -3,6 +3,9 @@
 require_once('db.php');
 //include('logs.php');
 
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+
 $errorInfo = false;
 
 // Vérifier si la connexion à la base de données est réussie
