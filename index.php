@@ -16,8 +16,9 @@ if (array_key_exists($slug, $routes)) {
     // Inclure le fichier correspondant à la route
     include $routes[$slug];
 } else {
-    // Page non trouvée
+    // Inclure la page 404
+    include '404.html';
+    // Optionnel : Envoyer un header HTTP 404
     header("HTTP/1.0 404 Not Found");
-    echo "404 - Page non trouvée";
 }
 ?>
