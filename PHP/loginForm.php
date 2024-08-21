@@ -31,10 +31,11 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 
     // Récupérer l'utilisateur depuis la base de données
     $user = $preparedLoginRequest->fetch(PDO::FETCH_ASSOC);
-    var_dump($user); // Affiche les informations utilisateur pour debugging
-
-    // Vérifier si l'utilisateur existe et si le mot de passe est correct
-    if ($user) {
+    if (!$user) {
+        // Ajout d'une vérification si l'utilisateur n'existe pas
+        $errorInfo = true;
+    } else {
+        // Vérifier si le mot de passe est correct
         if (password_verify($password, $user['password'])) {
             session_start();
             // Stocker les informations utilisateur dans la session
@@ -45,13 +46,11 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
             $_SESSION['theme'] = $user['theme'] ?? 'default'; // Si le champ theme existe
 
             insert_logs('connexion');
-            header('location:../index.php'); // Rediriger vers la page d'accueil
+            header('Location: ../index.php'); // Rediriger vers la page d'accueil
             exit;
         } else {
             $errorInfo = true;
         }
-    } else {
-        $errorInfo = true;
     }
 }
 ?>
