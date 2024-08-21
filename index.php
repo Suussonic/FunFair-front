@@ -5,10 +5,7 @@ include_once('db.php');
 $slug = explode("?", $_SERVER["REQUEST_URI"])[0];
 
 $routes = [
-    '/' => 'PHP/accueil.php',
-    '/about' => 'about.php',
-    '/contact' => 'contact.php',
-    '/services' => 'services.php'
+    '/' => 'PHP/accueil.php'
 ];
 
 // Vérifier si l'URL correspond à une route définie
