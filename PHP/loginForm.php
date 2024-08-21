@@ -39,7 +39,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
         $_SESSION['user'] = $user;
 
         insert_logs('connexion');
-        header('location:../index.php'); // Rediriger vers la page d'accueil
+        header('https://funfair.ovh/'); // Rediriger vers la page d'accueil
         exit;
     } else {
         $errorInfo = true;
