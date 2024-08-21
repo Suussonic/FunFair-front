@@ -10,9 +10,12 @@ include_once('./PHP/db.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fun Fair - Parc d'Attractions</title>
     <link rel="stylesheet" href="CSS/index.css">
+    <?php include 'PHP/theme.php'; ?>
+    
 </head>
     
 <body>
+    <?php include 'PHP/nav.php'; ?>
     <header>
         <h1>Bienvenue à Fun Fair</h1>
         <p>Le parc d'attractions où le plaisir ne s'arrête jamais !</p>
