@@ -1,5 +1,8 @@
 RewriteEngine On
 RewriteBase /
+RewriteCond %{SERVER_NAME} =www.funfair.ovh [OR]
+RewriteCond %{SERVER_NAME} =funfair.ovh
+RewriteRule ^ https://%{SERVER_NAME}%{REQUEST_URI} [END,NE,R=permanent]
 RewriteRule ^index\.php$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
