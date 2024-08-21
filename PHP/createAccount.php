@@ -31,12 +31,12 @@ if (isset($_POST['captcha_answer']) && isset($_POST['captcha_id'])) {
             $passHash = password_hash($pass, PASSWORD_BCRYPT);
 
             $insertUser = "
-            INSERT INTO users (firstname, lastname, email, password, gender)
-            VALUES (:firstname, :lastname, :email, :password, :gender)
+            INSERT INTO users (id, firstname, lastname, email, password, gender)
+            VALUES (:id, :firstname, :lastname, :email, :password, :gender)
             ";
 
-            $preparedQuery = $dbh->prepare($insertUser);
             $preparedQuery->execute([
+                'id' => $someUniqueId, // Utilisez une méthode pour générer un ID unique
                 'firstname' => $firstname,
                 'lastname' => $lastname,
                 'email' => $email,
