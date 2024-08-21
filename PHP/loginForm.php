@@ -30,27 +30,21 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
     $user = $preparedLoginRequest->fetch(PDO::FETCH_ASSOC);
 
     // Vérifier si l'utilisateur existe et si le mot de passe est correct
-    try {
-        if ($user && password_verify($password, $user['password'])) {
-            session_start();
-            // Store user information in the session
-            $_SESSION['userId'] = $user['id'];
-            $_SESSION['firstname'] = $user['firstname'];
-            $_SESSION['lastname'] = $user['lastname'];
-            $_SESSION['user'] = $user;
-    
-            insert_logs('connexion');
-    
-            header('Location: ../index.php');
-            exit;
-        } else {
-            $errorInfo = 'Identifiant ou mot de passe incorrect.';
-        }
-    } catch (PDOException $e) {
-        $errorInfo = 'Erreur lors de l\'exécution de la requête SQL : ' . $e->getMessage();
-    } catch (Exception $e) {
-        $errorInfo = 'Une erreur inattendue est survenue : ' . $e->getMessage();
+    if ($user && password_verify($password, $user['password'])) {
+        session_start();
+        // Stocker les informations utilisateur dans la session
+        $_SESSION['userId'] = $user['id'];
+        $_SESSION['firstname'] = $user['firstname'];
+        $_SESSION['lastname'] = $user['lastname'];
+        $_SESSION['user'] = $user;
+
+        insert_logs('connexion');
+        header('https://funfair.ovh/'); // Rediriger vers la page d'accueil
+        exit;
+    } else {
+        $errorInfo = true;
     }
+}
 ?>
 
 <!DOCTYPE html>
@@ -60,6 +54,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="shortcut icon" href="../ASSET/CARDBINDEX V5.png" type="image/x-icon">
     <link rel="stylesheet" href="../CSS/LoginForm.css">
+    <?php include 'theme.php'; ?>
     <title>Connexion</title>
 </head>
 <body>
