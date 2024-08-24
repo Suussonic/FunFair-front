@@ -1,13 +1,22 @@
 <?php
     require_once '../../models/database.php';
-    global $dbh;
-    sendReservation(nouvelleReservation($_GET["q"], $_GET["i"], $_GET["p"], $_GET["email"],$_GET["date"], $_GET["heure"]));
+
+    $user = 'root';
+    $password = 'root';
+    $options = [PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC];
+    
+    try {
+        $dbh = new PDO('mysql:host=funfair.ovh;dbname=pa;charset=utf8mb4', $user, $password);
+    } catch (PDOException $e) {
+        var_dump($e);
+    }
+    sendReservation(nouvelleReservation($_GET["q"], $_GET["i"], $_GET["p"], $_GET["email"],$_GET["date"], $_GET["heure"], $dbh));
         
 
 
-    function nouvelleReservation($quantity, $idstripe, $unitprice, $email, $date, $heure): int //int =  retourne un int
+    function nouvelleReservation($quantity, $idstripe, $unitprice, $email, $date, $heure, $dbh): int //int =  retourne un int
     {
-        global $dbh;
+
         $query = $dbh->prepare("SELECT count(id) as total FROM reservations");
         $query->execute();
         $result = $query->fetch(PDO::FETCH_ASSOC);
