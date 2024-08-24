@@ -5,7 +5,7 @@
         
 
 
-    function novelleReservation($quantity, $idstripe, $unitprice, $email, $date, $heure): int //int =  retourne un int
+    function nouvelleReservation($quantity, $idstripe, $unitprice, $email, $date, $heure): int //int =  retourne un int
     {
         global $dbh;
         $query = $dbh->prepare("SELECT count(id) as total FROM reservations");
