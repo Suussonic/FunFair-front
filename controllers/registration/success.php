@@ -1,7 +1,7 @@
 <?php
 
-    $user = 'root';
-    $password = 'root';
+    $user = 'rot';
+    $password = 'web';
     
     try {
         $dbh = new PDO('mysql:host=localhost;dbname=pa;charset=utf8mb4', $user, $password);
