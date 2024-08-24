@@ -1,7 +1,7 @@
 <?php
 
 $name = $_GET["name"];
-$stripeid = $_GET["idstripe"];
+$stripeid = $_GET["stripeid"];
 
 ?>
 
