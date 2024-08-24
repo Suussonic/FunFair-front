@@ -7,6 +7,8 @@ $routes = [
     '/contact' => 'controllers/contact.php',
     '/horaire' => 'controllers/horaire.php',
     
+    '/checkout' => 'controllers/checkout.php',
+
     '/forum' => 'controllers/forum.php',
 
     '/login' => 'controllers/registration/login.php',

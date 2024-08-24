@@ -1,6 +1,7 @@
 <?php
 
-$stripeSecretKey = 'sk_test_51PrNEeIpuwwZKBGaVhN6YsIQeDn7BQ8CEaBNCLrB9Iw8IFX0Q5yNe6Mssxb5khU4FG4jsm6TWvOWWWdqmIBtsrm700gE3NazR4';
+include_once('models/Database.php');
+require_once('../stripe/init.php');
 
 $stripe = new \Stripe\StripeClient($stripeSecretKey);
 header('Content-Type: application/json');
