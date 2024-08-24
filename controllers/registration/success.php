@@ -20,7 +20,7 @@
         $result = $query->fetch(PDO::FETCH_ASSOC);
         $rowid = $result["total"] + 1;
         $attraction = getAttractionIdByStripeId($idstripe);
-        $total = $unitPrce * $quantity;
+        $total = ($unitprice * $quantity)/100;
         $query = $dbh -> prepare("INSERT INTO reservations (id, attractionid, montant, quantity, date, heure, email) VALUES(:id, :attraction,:montant, :quantity, :date, :heure, :email)");
         $query -> bindParam(':id', $rowid);
         $query -> bindParam(':attraction',$attraction);
@@ -37,7 +37,7 @@
     function getAttractionIdByStripeId($stripeid): int 
     {
         global $dbh;
-        $query = $dbh -> prepare("SELECT id FROM attraction where idstripe = :idstripe");
+        $query = $dbh -> prepare("SELECT id FROM attractions where idstripe = :idstripe");
         $query -> bindParam(':idstripe', $stripeid);
         $query -> execute();
         $result = $query -> fetch();
@@ -51,5 +51,5 @@
     //ou telecharger
     //ou les deux
     }
-    require_once('../views/registration/success.view.php');
+    require_once('../../views/registration/success.view.php');
 ?>
