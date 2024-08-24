@@ -15,7 +15,7 @@
   </header>
 
   <div class="reservation-form">
-  <form method="POST" action="/controllers/registration/checkoutsession.php">
+  <form method="POST" action="/controllers/registration/create-checkout-session.php.php">
             <!--<input type="text" id="name" name="name" placeholder="Nom :" required>-->
 
             <input type="email" id="email" name="email" placeholder="Email :" required>
