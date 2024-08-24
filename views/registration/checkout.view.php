@@ -29,7 +29,7 @@ $stripeid = $_GET["idstripe"];
 
             <input type="date" id="date" name="date" placeholder="Date" required>
 
-            <select id="time" name="time" placeholder="Heure" required>
+            <select id="heure" name="heure" placeholder="Heure" required>
                 <option value="10:00">10:00</option>
                 <option value="12:00">12:00</option>
                 <option value="14:00">14:00</option>

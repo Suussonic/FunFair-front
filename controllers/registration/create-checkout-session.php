@@ -12,8 +12,8 @@ $stripe = new \Stripe\StripeClient($stripeSecretKey);
 try {
     
     $prices = \Stripe\Price::all([
-        'lookup_keys' => [$_POST['lookup_key']],
-        'expand' => ['data.product']
+        'lookup_keys' => 'iIntimidator305',//[$_POST['lookup_key']],
+        'expand' => ['data.product'],
     ]);
 
     $checkout_session = \Stripe\Checkout\Session::create([
