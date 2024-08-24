@@ -1,3 +1,10 @@
+<?php
+
+$name = $_GET["name"];
+$stripeid = $_GET["idstripe"];
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -15,7 +22,7 @@
   </header>
 
   <div class="reservation-form">
-  <form method="POST" action="/controllers/registration/create-checkout-session.php.php">
+  <form method="POST" action="/controllers/registration/create-checkout-session.php">
             <!--<input type="text" id="name" name="name" placeholder="Nom :" required>-->
 
             <input type="email" id="email" name="email" placeholder="Email :" required>
@@ -30,6 +37,7 @@
             </select>
 
             <input type="number" id="people" name="people" min="1" max="10" placeholder="Nombre de personne" required>
+            <input type="hidden" name="lookup_key" value="<?php echo($stripeid)?>" />
 
             <button type="submit">Réserver</button>
         </form>
