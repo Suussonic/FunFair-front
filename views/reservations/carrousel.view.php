@@ -14,7 +14,7 @@
     </header>
 
     <div class="reservation-form">
-        <form action="confirm_reservation.php" method="POST">
+        <form method="POST">
             <label for="name">Nom:</label>
             <input type="text" id="name" name="name" required>
 

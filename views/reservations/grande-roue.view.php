@@ -15,7 +15,7 @@
     </header>
 
     <div class="reservation-form">
-        <form action="confirm_reservation.php" method="POST">
+        <form method="POST">
             <label for="name">Nom:</label>
             <input type="text" id="name" name="name" required>
 
@@ -36,7 +36,9 @@
             <label for="people">Nombre de personnes:</label>
             <input type="number" id="people" name="people" min="1" max="10" required>
 
-            <button type="submit">Réserver</button>
+            <button type="submit"> 
+                <a href="/checkout?stripeid=lagranderoue&name=La+Grande+Roue&priceid=price_1PrNIFIpuwwZKBGaCdHSl0Iv">Réserver</a>
+            </button>
         </form>
     </div>
 </body>
