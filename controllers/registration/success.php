@@ -1,5 +1,4 @@
 <?php
-    require_once '../../models/database.php';
 
     $user = 'root';
     $password = 'root';
