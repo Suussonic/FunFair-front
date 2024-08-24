@@ -43,4 +43,5 @@
     //ou telecharger
     //ou les deux
   }
+  require_once'../views/registration/sucess.view.php';
 ?>
