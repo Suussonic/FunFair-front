@@ -6,7 +6,7 @@
     $options = [PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC];
     
     try {
-        $dbh = new PDO('mysql:host=funfair.ovh;dbname=pa;charset=utf8mb4', $user, $password);
+        $dbh = new PDO('mysql:host=localhost;dbname=pa;charset=utf8mb4', $user, $password);
     } catch (PDOException $e) {
         var_dump($e);
     }
