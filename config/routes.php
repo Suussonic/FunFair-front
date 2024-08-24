@@ -9,6 +9,7 @@ $routes = [
     
     '/checkout' => 'controllers/registration/checkout.php',
     '/checkoutsession' => 'controllers/registration/create-checkout-session.php',
+    '/success' => 'controllers/registration/success.php',
 
     '/forum' => 'controllers/forum.php',
 
