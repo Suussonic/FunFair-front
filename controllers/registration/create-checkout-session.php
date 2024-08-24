@@ -18,7 +18,7 @@ try {
 
     $checkout_session = \Stripe\Checkout\Session::create([
         'line_items' => [[
-            'price' => $prices->data[0]->id,
+            'price' => 'price_1PrNLSIpuwwZKBGaQoRO9Y48',//$prices->data[0]->id,
             'quantity' => $quantity,
         ]],
 
