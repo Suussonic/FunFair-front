@@ -1,6 +1,6 @@
 <?php
 $routes = [
-    '/' => 'controllers/index.php',
+    '/' => 'controllers/index-home.php',
     '/attractions' => 'controllers/attractions.php',
     '/avis' => 'controllers/avis.php',
     '/billets' => 'controllers/billets.php',
