@@ -1,7 +1,10 @@
 <?php
-
 $YOUR_DOMAIN = 'https://funfair.ovh';
 $quantity = $_POST['poeple'];
+$email = $_POST["email"];
+$date = $_POST["date"];
+$heure = $_POST["heure"];
+
 try {
     
     $prices = \Stripe\Price::all([
@@ -16,8 +19,8 @@ try {
         ]],
 
         'mode' => 'payment',
-        'success_url' => $YOUR_DOMAIN . '/php/payment/success.php?q='.$quantity.'&i='.$_POST['lookup_key'].'&p='.$prices->data[0]['unit_amount'],
-        'cancel_url' => $YOUR_DOMAIN . '/php/index.php',
+        'success_url' => $YOUR_DOMAIN . 'success.php?q='.$quantity.'&i='.$_POST['lookup_key'].'&p='.$prices->data[0]['unit_amount'].'&email='.$email.'&date='.$date.'&heure='.$heure,
+        'cancel_url' => $YOUR_DOMAIN . '/',
     ]);
     header("HTTP/1.1 303 See Other");
     header("Location: " . $checkout_session->url);
@@ -27,5 +30,4 @@ try {
 
 }
 
-require 'views/registration/checkoutsession.view.php';
 ?>
