@@ -15,7 +15,7 @@
 
   <div class="reservation-form">
   <form method="POST" action="/controllers/registration/checkout.php">
-            <input type="text" id="name" name="name" placeholder="Nom :" required>
+            <!--<input type="text" id="name" name="name" placeholder="Nom :" required>-->
 
             <input type="email" id="email" name="email" placeholder="Email :" required>
 
@@ -30,7 +30,7 @@
 
             <input type="number" id="people" name="people" min="1" max="10" placeholder="Nombre de personne" required>
 
-            <button type="submit"></button>
+            <button type="submit">Réserver</button>
         </form>
   </div>
 </body>
