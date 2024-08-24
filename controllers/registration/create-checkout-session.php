@@ -1,6 +1,6 @@
 <?php
 require_once '../../stripe/init.php';
-$YOUR_DOMAIN = 'https://funfair.ovh';
+$YOUR_DOMAIN = 'http://funfair.ovh/';
 $quantity = $_POST['people'];
 $email = $_POST['email'];
 $date = $_POST['date'];
