@@ -1,13 +1,11 @@
 <?php
-  require_once '../Stripe/init.php';
+    require_once '../../models/database.php';
+    sendReservation(nouvelleReservation($_GET["q"], $_GET["i"], $_GET["p"], $_GET["email"],$_GET["date"], $_GET["heure"]));
+        
 
-  sendReservation(nouvelleReservation($_GET["q"], $_GET["i"], $_GET["p"], $_GET["email"],$_GET["date"], $_GET["heure"]));
-      
 
-
-  function novelleReservation($quantity, $idstripe, $unitprice, $email, $date, $heure): int //int =  retourne un int
-  {
-    $sdbh = connectionBdd();
+    function novelleReservation($quantity, $idstripe, $unitprice, $email, $date, $heure): int //int =  retourne un int
+    {
     $query = $sdbh->prepare("SELECT count(id) as total FROM reservations");
     $query->execute();
     $result = $query->fetch(PDO::FETCH_ASSOC);
@@ -24,24 +22,24 @@
     $query -> bindParam(':email', $email);
     $query -> execute();
 
-  return $rowid;
-  }
+    return $rowid;
+    }
 
-  function getAttractionIdByStripeId($stripeid): int 
-  {
+    function getAttractionIdByStripeId($stripeid): int 
+    {
     $query = $dbh -> prepare("SELECT id FROM attraction where idstripe = :idstripe");
     $query -> bindParam(':idstripe', $stripeid);
     $query -> execute();
     $result = $query -> fetch();
     return $result['id'];
-  }
+    }
 
-  function sendreservation($id)
-  {
+    function sendreservation($id)
+    {
     //construire le pdf avec fpdf ou un truc du genre 
     //envoiyer par mail
     //ou telecharger
     //ou les deux
-  }
-  require_once('../views/registration/success.view.php');
+    }
+    require_once('../views/registration/success.view.php');
 ?>
