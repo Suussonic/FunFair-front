@@ -8,15 +8,15 @@
   function novelleReservation($quantity, $idstripe, $unitprice, $email, $date, $heure): int //int =  retourne un int
   {
     $sdbh = connectionBdd();
-    $query = $sdbh->prepare("SELECT count(rowid) as total FROM orders");
+    $query = $sdbh->prepare("SELECT count(id) as total FROM reservations");
     $query->execute();
     $result = $query->fetch(PDO::FETCH_ASSOC);
     $rowid = $result["total"] + 1;
     $attraction = getAttractionIdByStripeId($idstripe);
     $total = $unitPrce * $quantity;
-    $query = $dbh -> prepare("INSERT INTO reservations (id, attractionid, montant, nombrepersones, date, heure, emailachteur) VALUES(:id, :attraction,:montant, :quantity, :date, :heure, :email)");
+    $query = $dbh -> prepare("INSERT INTO reservations (id, attractionid, montant, quantity, date, heure, email) VALUES(:id, :attraction,:montant, :quantity, :date, :heure, :email)");
     $query -> bindParam(':id', $rowid);
-    $query -> bindParam(':attraction',$attrction);
+    $query -> bindParam(':attraction',$attraction);
     $query -> bindParam(':montant', $total);
     $query -> bindParam(':quantity', $quantity);
     $query -> bindParam(':date', $date);
