@@ -1,3 +1,3 @@
 <?php
-require 'views/checkoutsession.view.php';
+require '/views/checkoutsession.view.php';
 ?>
