@@ -14,9 +14,24 @@
   </header>
 
   <div class="reservation-form">
-    <form method="POST">
-      <button type="submit">Valider</button>
-    </form>
+  <form method="POST" action="/controllers/registration/checkout.php">
+            <input type="text" id="name" name="name" placeholder="Nom :" required>
+
+            <input type="email" id="email" name="email" placeholder="Email :" required>
+
+            <input type="date" id="date" name="date" placeholder="Date" required>
+
+            <select id="time" name="time" placeholder="Heure" required>
+                <option value="10:00">10:00</option>
+                <option value="12:00">12:00</option>
+                <option value="14:00">14:00</option>
+                <option value="16:00">16:00</option>
+            </select>
+
+            <input type="number" id="people" name="people" min="1" max="10" placeholder="Nombre de personne" required>
+
+            <button type="submit"></button>
+        </form>
   </div>
 </body>
 
