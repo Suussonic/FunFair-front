@@ -14,7 +14,7 @@
         <h1>404</h1>
         <p>Désolé, la page que vous recherchez n'existe pas.</p>
         <a href="/">Retour à l'accueil</a>
-        <img src="/public/images/pika.png">
+        <img src="../public/images/pika.png">
     </div>
 </body>
 
