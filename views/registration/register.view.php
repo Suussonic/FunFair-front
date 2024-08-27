@@ -1,4 +1,7 @@
 <?php
+
+include_once('models/Database.php');
+
 $query = "SELECT * FROM captcha ORDER BY RAND() LIMIT 1";
 $result = $dbh->query($query);
 $captcha = $result->fetch(PDO::FETCH_ASSOC);
