@@ -42,7 +42,7 @@ if (isset($_POST['captcha_answer']) && isset($_POST['captcha_id'])) {
                 'confirme' => $confirme,
                 'cle' => $cle,
             ]);                    
-
+/*
             $recupUser = $bdd->prepare('SELECT * FROM users WHERE email = ?');
             $recupUser->execute(array($email));
             if($recupUser->rowCount() > 0){
@@ -163,7 +163,7 @@ if (isset($_POST['captcha_answer']) && isset($_POST['captcha_id'])) {
                         
                         $error=smtpmailer($to,$from, $name ,$subj, $msg);
                 }
-
+*/
             header("Location: /login");
             exit;
         } else {
