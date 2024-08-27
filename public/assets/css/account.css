@@ -3,6 +3,7 @@ body {
     font-family: Arial, sans-serif;
     height: auto;
     align-items: center;
+    background-color: #555962;
 }
   
 header {
@@ -49,7 +50,7 @@ header a{
 
 header a:hover{
     text-decoration: none;
-    color: rgb(59, 59, 255);
+    color: #ff6f61;
     font-weight: bold;
     font-size: 120%;
 }
@@ -62,7 +63,7 @@ h1 {
 }
 
 #deco {
-    background-color: #007bff;
+    background-color: #ff6f61;
     color: black;
     border: 2px black solid;
     cursor: pointer;

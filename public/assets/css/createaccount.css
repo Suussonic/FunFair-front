@@ -4,6 +4,7 @@ body {
   height: auto;
   align-items: center;
   text-align: center;
+  background-color: #555962;
 }
 
 form {
@@ -12,7 +13,7 @@ form {
   border-radius: 6px;
   margin: 150px auto auto auto;
   padding-bottom: 70px;
-  border: #2980b9 4px solid;
+  border: #ff6f61 4px solid;
   height: auto;
 }
 
