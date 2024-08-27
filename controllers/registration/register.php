@@ -1,11 +1,9 @@
 <?php
 
 include_once('/models/Database.php');
-<<<<<<< HEAD
 require "/phpmailer/PHPMailerAutoload.php";
 include('./verif.php');
-=======
->>>>>>> dc164b7bf8debb11518c220ae7c53ad4f5e31773
+
 
 include('/config/register.php');
 
