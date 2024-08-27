@@ -1,6 +1,6 @@
 <?php
 
-include_once('models/Database.php');
+include_once('/models/Database.php');
 require "../../phpmailer/PHPMailerAutoload.php";
 include('../verif.php');
 
@@ -176,4 +176,4 @@ if (isset($_POST['captcha_answer']) && isset($_POST['captcha_id'])) {
     }
 }
 
-require 'views/registration/register.view.php';
+require '/views/registration/register.view.php';
