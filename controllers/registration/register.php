@@ -1,8 +1,8 @@
 <?php
 
 include_once('models/Database.php');
-require ("../../phpmailer/PHPMailerAutoload.php");
-include('../verif.php');
+//require ("../../phpmailer/PHPMailerAutoload.php");
+//include('../verif.php');
 include('config/register.php');
 
 
@@ -30,15 +30,16 @@ if (isset($_POST['captcha_answer']) && isset($_POST['captcha_id'])) {
             $hashedPassword = password_hash($pass, PASSWORD_BCRYPT);
 
             $cle = rand(1000000, 9000000);  //creation de la cle
+            $confirme = 0;
             $insererUsers = $bdd->prepare('INSERT INTO users (firstname, lastname, email, password, gender, confirme, cle) 
-                                            VALUES (:firstname, :lastname, :email, :password, :gender, ?, :cle)'); 
+                                            VALUES (:firstname, :lastname, :email, :password, :gender, :confirme, :cle)'); 
             $insererUsers->execute([
                 'firstname' => $firstname,
                 'lastname' => $lastname,
                 'email' => $email,
                 'password' => $hasedPassword,
                 'gender' => $gender,
-                'confirme' => 0,
+                'confirme' => $confirme,
                 'cle' => $cle,
             ]);                    
     
@@ -47,7 +48,7 @@ if (isset($_POST['captcha_answer']) && isset($_POST['captcha_id'])) {
             if($recupUser->rowCount() > 0){
                 $userInfos = $recupUser->fetch();
                 $_SESSION['id'] = $userInfos['id'];
-    
+    /*
 
                 function smtpmailer($to, $from, $from_name, $subject, $body)
                         {
@@ -162,7 +163,7 @@ if (isset($_POST['captcha_answer']) && isset($_POST['captcha_id'])) {
                         
                         $error=smtpmailer($to,$from, $name ,$subj, $msg);
                 }
-
+*/
             header("Location: /login");
             exit;
         } else {
