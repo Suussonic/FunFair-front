@@ -4,7 +4,7 @@ include_once('/models/Database.php');
 require "../../phpmailer/PHPMailerAutoload.php";
 include('../verif.php');
 
-include('config/register.php');
+include('/config/register.php');
 
 
 if (isset($_POST['captcha_answer']) && isset($_POST['captcha_id'])) {
