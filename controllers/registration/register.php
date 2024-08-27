@@ -4,8 +4,8 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-require_once('../../models/Database.php');
-include('../../config/register.php');
+require_once('/models/Database.php');
+include('/config/register.php');
 
 if (isset($_POST['captcha_answer']) && isset($_POST['captcha_id'])) {
     $captcha_id = $_POST['captcha_id'];
@@ -45,7 +45,7 @@ if (isset($_POST['captcha_answer']) && isset($_POST['captcha_id'])) {
             ]);
             
             // Rediriger vers la page de connexion après une inscription réussie
-            header("Location: loginForm.php");
+            header("Location: login.php");
             exit;
         } else {
             header('Location: form.php?error=Votre mot de passe doit posséder un minimum de 8 caractères, dont une majuscule, une minuscule, un caractère spécial et un chiffre.');
@@ -59,6 +59,7 @@ if (isset($_POST['captcha_answer']) && isset($_POST['captcha_id'])) {
     header('Location: form.php?error=Veuillez répondre au captcha.');
     exit;
 }
-?>
 
 require 'views/registration/register.view.php';
+
+?>
