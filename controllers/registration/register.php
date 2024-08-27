@@ -4,15 +4,9 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-$user = 'rot';
-    $password = 'web';
-    
-    try {
-        $dbh = new PDO('mysql:host=funfair.ovh;dbname=pa;charset=utf8mb4', $user, $password);
-    } catch (PDOException $e) {
-        var_dump($e);
-    }
-include('../../config/register.php');
+// Correction du chemin pour inclure la base de données et la configuration
+require_once('models/Database.php'); // Utilisation de __DIR__ pour gérer les chemins relatifs correctement
+include('config/register.php');
 
 // Vérification de la réponse au captcha
 if (isset($_POST['captcha_answer']) && isset($_POST['captcha_id'])) {
@@ -53,21 +47,21 @@ if (isset($_POST['captcha_answer']) && isset($_POST['captcha_id'])) {
             ]);
             
             // Rediriger vers la page de connexion après une inscription réussie
-            header("Location: /controllers/registration/login.php");
+            header("Location: controllers/registration/login.php");
             exit;
         } else {
-            header('Location: /controllers/registration/register.php?error=Votre mot de passe doit posséder un minimum de 8 caractères, dont une majuscule, une minuscule, un caractère spécial et un chiffre.');
+            header('Location: controllers/registration/register.php?error=Votre mot de passe doit posséder un minimum de 8 caractères, dont une majuscule, une minuscule, un caractère spécial et un chiffre.');
             exit;
         }
     } else {
-        header('Location: /controllers/registration/register.php?error=Réponse au captcha incorrecte. Veuillez réessayer.');
+        header('Location: controllers/registration/register.php?error=Réponse au captcha incorrecte. Veuillez réessayer.');
         exit;
     }
 } else {
-    header('Location: /controllers/registration/register.php?error=Veuillez répondre au captcha.');
+    header('Location: controllers/registration/register.php?error=Veuillez répondre au captcha.');
     exit;
 }
 
 // Inclure la vue du formulaire d'inscription
-require __DIR__ . '/../views/registration/register.view.php'; // Correction du chemin pour inclure la vue
+require 'views/registration/register.view.php'; // Correction du chemin pour inclure la vue
 ?>
