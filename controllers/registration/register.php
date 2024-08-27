@@ -1,8 +1,8 @@
 <?php
 
 include_once('/models/Database.php');
-require "../../phpmailer/PHPMailerAutoload.php";
-include('../verif.php');
+require "/phpmailer/PHPMailerAutoload.php";
+include('./verif.php');
 
 include('/config/register.php');
 
