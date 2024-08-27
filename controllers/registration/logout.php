@@ -3,7 +3,7 @@ session_start();
 
 session_destroy();
 
+header('Location: /');
 exit();
 
-require 'views/registration/logout.view.php';
 ?>
