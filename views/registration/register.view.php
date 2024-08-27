@@ -1,6 +1,10 @@
 <?php
 
+<<<<<<< HEAD
 include_once('../models/Database.php');
+=======
+include_once('/models/Database.php');
+>>>>>>> a8231ba42149b08b6244bb613244fadd194bf00f
 
 $query = "SELECT * FROM captcha ORDER BY RAND() LIMIT 1";
 $result = $dbh->query($query);
