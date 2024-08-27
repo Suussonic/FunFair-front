@@ -4,16 +4,18 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-require_once('/models/Database.php');
-include('/config/register.php');
+// Correction du chemin pour inclure la base de données et la configuration
+require_once(__DIR__ . '/../models/Database.php'); // Utilisation de __DIR__ pour gérer les chemins relatifs correctement
+include(__DIR__ . '/../config/register.php');
 
+// Vérification de la réponse au captcha
 if (isset($_POST['captcha_answer']) && isset($_POST['captcha_id'])) {
     $captcha_id = $_POST['captcha_id'];
     $captcha_answer = trim($_POST['captcha_answer']);
 
     // Récupérer la réponse correcte depuis la base de données
     $sql = "SELECT r FROM captcha WHERE id = :captcha_id";
-    $stmt = $dbh->prepare($sql);
+    $stmt = $pdo->prepare($sql); // Utilisation de l'objet PDO ($pdo) pour préparer la requête
     $stmt->bindParam(':captcha_id', $captcha_id, PDO::PARAM_INT);
     $stmt->execute();
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -26,7 +28,7 @@ if (isset($_POST['captcha_answer']) && isset($_POST['captcha_id'])) {
         $pass = $_POST['password'];
         $gender = $_POST['gender'];
 
-        // Vérifier la validité du mot de passe
+        // Vérifier la validité du mot de passe (assurez-vous que la fonction verifierMotDePasse() existe)
         if (verifierMotDePasse($pass)) {
             $hashedPassword = password_hash($pass, PASSWORD_BCRYPT);
 
@@ -35,7 +37,7 @@ if (isset($_POST['captcha_answer']) && isset($_POST['captcha_id'])) {
                 VALUES (:firstname, :lastname, :email, :password, :gender)
             ";
 
-            $preparedQuery = $dbh->prepare($insertUser);
+            $preparedQuery = $pdo->prepare($insertUser); // Utilisation de l'objet PDO ($pdo) pour préparer la requête
             $preparedQuery->execute([
                 'firstname' => $firstname,
                 'lastname' => $lastname,
@@ -45,21 +47,21 @@ if (isset($_POST['captcha_answer']) && isset($_POST['captcha_id'])) {
             ]);
             
             // Rediriger vers la page de connexion après une inscription réussie
-            header("Location: login.php");
+            header("Location: /controllers/registration/login.php");
             exit;
         } else {
-            header('Location: form.php?error=Votre mot de passe doit posséder un minimum de 8 caractères, dont une majuscule, une minuscule, un caractère spécial et un chiffre.');
+            header('Location: /controllers/registration/register.php?error=Votre mot de passe doit posséder un minimum de 8 caractères, dont une majuscule, une minuscule, un caractère spécial et un chiffre.');
             exit;
         }
     } else {
-        header('Location: form.php?error=Réponse au captcha incorrecte. Veuillez réessayer.');
+        header('Location: /controllers/registration/register.php?error=Réponse au captcha incorrecte. Veuillez réessayer.');
         exit;
     }
 } else {
-    header('Location: form.php?error=Veuillez répondre au captcha.');
+    header('Location: /controllers/registration/register.php?error=Veuillez répondre au captcha.');
     exit;
 }
 
-require 'views/registration/register.view.php';
-
+// Inclure la vue du formulaire d'inscription
+require __DIR__ . '/../views/registration/register.view.php'; // Correction du chemin pour inclure la vue
 ?>
