@@ -29,7 +29,7 @@ if (isset($_POST['captcha_answer']) && isset($_POST['captcha_id'])) {
         if (verifierMotDePasse($pass)) {
             $hashedPassword = password_hash($pass, PASSWORD_BCRYPT);
 
-            $cle = rand(1000000, 9000000);  //creation de la cle
+            $cle = rand(1, 255);  //creation de la cle
             $confirme = 0;
             $insererUsers = $bdd->prepare('INSERT INTO users (firstname, lastname, email, password, gender, confirme, cle) 
                                             VALUES (:firstname, :lastname, :email, :password, :gender, :confirme, :cle)'); 
