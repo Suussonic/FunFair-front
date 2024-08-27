@@ -1,7 +1,6 @@
 <?php
 require "../phpmailer/PHPMailerAutoload.php";
 require_once('/models/Database.php');
-include('verif.php');
 
 function sendMail($email, $objet, $body) {
                     try {
