@@ -17,6 +17,14 @@ h1 {
   margin: 0;
 }
 
+header a{
+  background-color: #ffa07a;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 15em;
+}
+
 p {
   font-size: 1.2em;
   margin: 10px 0;
