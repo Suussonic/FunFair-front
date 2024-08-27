@@ -20,7 +20,7 @@ body {
 
 h1 {
   font-size: 4em;
-  color: #0a81ff;
+  color: #ff6f61;
 }
 
 p {
@@ -34,13 +34,13 @@ a {
   padding: 10px 20px;
   font-size: 1em;
   color: #ffffff;
-  background-color: #024a8d;
+  background-color: #ff6f61;
   text-decoration: none;
   border-radius: 5px;
 }
 
 a:hover {
-  background-color: #0a81ff;
+  background-color: #ff6f61;
 }
 
 img {
