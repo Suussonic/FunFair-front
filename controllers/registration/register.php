@@ -5,8 +5,8 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 // Correction du chemin pour inclure la base de données et la configuration
-require_once('/../models/Database.php'); // Utilisation de __DIR__ pour gérer les chemins relatifs correctement
-include('/../config/register.php');
+require_once('../../models/Database.php'); // Utilisation de __DIR__ pour gérer les chemins relatifs correctement
+include('../../config/register.php');
 
 // Vérification de la réponse au captcha
 if (isset($_POST['captcha_answer']) && isset($_POST['captcha_id'])) {
