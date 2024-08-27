@@ -36,7 +36,7 @@
             <h2>La Grande Roue</h2>
             <p>Profitez d'une vue imprenable sur le parc depuis les hauteurs.</p>
             <p class="age-requirement">Âge minimum: 5+</p>
-            <a class="reserve-button" href="/reservation/grande-roue">Réserver</a>
+            <a class="reserve-button" href="/checkout?name=La+Grande+Roue">Réserver</a>
         </div>
         <div class="attraction-item" data-age="10">
             <h2>Les Montagnes Russes</h2>
