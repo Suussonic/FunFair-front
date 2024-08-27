@@ -42,13 +42,13 @@ if (isset($_POST['captcha_answer']) && isset($_POST['captcha_id'])) {
                 'confirme' => $confirme,
                 'cle' => $cle,
             ]);                    
-    
+     /*
             $recupUser = $bdd->prepare('SELECT * FROM users WHERE email = ?');
             $recupUser->execute(array($email));
             if($recupUser->rowCount() > 0){
                 $userInfos = $recupUser->fetch();
                 $_SESSION['id'] = $userInfos['id'];
-    /*
+   
 
                 function smtpmailer($to, $from, $from_name, $subject, $body)
                         {
