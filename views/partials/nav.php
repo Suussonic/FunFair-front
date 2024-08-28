@@ -3,6 +3,10 @@
 
 include 'models/Database.php';
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 if (isset($_SESSION['firstname'])) {
     // Récupérer le rôle de l'utilisateur depuis la base de données
     $id = $_SESSION['id']; // Supposons que l'ID de l'utilisateur est stocké dans $_SESSION['id']
