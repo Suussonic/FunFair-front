@@ -3,8 +3,7 @@ include_once('models/Database.php');
 
 $errorInfo = false;
 
-// Vérifier si la connexion à la base de données est établie
-if (!isset($dbh)) {
+if (!$dbh) {
     die('Connexion à la base de données échouée.');
 }
 
@@ -18,7 +17,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
     $loginSql = 'SELECT * FROM users WHERE email = :email';
 
     try {
-        $preparedLoginRequest = $pdo->prepare($loginSql);
+        $preparedLoginRequest = $dbh->prepare($loginSql);
         $preparedLoginRequest->execute(['email' => $email]);
     } catch (PDOException $e) {
         die('Erreur lors de l\'exécution de la requête SQL : ' . $e->getMessage());
@@ -31,17 +30,19 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
     if ($user && password_verify($password, $user['password'])) {
         session_start();
         // Stocker les informations utilisateur dans la session
-        $_SESSION['id'] = $user['id'];  // Utilisez 'id' de manière cohérente
+        $_SESSION['id'] = $user['id'];
         $_SESSION['firstname'] = $user['firstname'];
         $_SESSION['lastname'] = $user['lastname'];
         $_SESSION['user'] = $user;
 
-        header('Location: /'); // Rediriger vers la page d'accueil
+        //insert_logs('connexion');
+        header('location:/'); // Rediriger vers la page d'accueil
         exit;
     } else {
         $errorInfo = true;
     }
 }
+
 
 require 'views/registration/login.view.php';
 ?>
