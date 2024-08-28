@@ -115,6 +115,7 @@ if (isset($_POST['captcha_answer']) && isset($_POST['captcha_id'])) {
                         </div>
                     </body>
                     </html>';
+            sendmail($email, $objet, $body);
             
 
             header("Location: /login");
