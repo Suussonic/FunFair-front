@@ -1,6 +1,6 @@
 <?php
 include 'models/Database.php';
-include 'views/capcha?vew.php';
+include 'views/capcha.view.php';
 if ($stmt->rowCount() > 0) {
     // Afficher les données de chaque ligne
     while ($row = $stmt->fetch()) {
