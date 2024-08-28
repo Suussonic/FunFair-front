@@ -1,5 +1,5 @@
 <?php
-include 'Database.php';
+include 'models/Database.php';
 
 <!DOCTYPE html>
 <html lang="fr">
