@@ -4,7 +4,7 @@ include_once('models/Database.php');
 $errorInfo = false;
 
 // Vérifier si la connexion à la base de données est établie
-if (!isset($pdo)) {
+if (!isset($dbh)) {
     die('Connexion à la base de données échouée.');
 }
 
