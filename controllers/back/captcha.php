@@ -3,5 +3,5 @@ include 'models/Database.php';
 
 
 
-require 'views/back/back.view.php';
+require 'views/back/captcha.view.php';
 ?>

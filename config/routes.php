@@ -18,6 +18,7 @@ $routes = [
     '/logout' => 'controllers/registration/logout.php',
     
     '/back' => 'controllers/back/back.php',
+    '/captcha' => 'controllers/back/captcha.php',
 
     '/reservation/carrousel' => 'controllers/reservations/carrousel.php',
     '/reservation/grande-roue' => 'controllers/reservations/grande-roue.php',
