@@ -31,11 +31,11 @@
     
 </table>
 <div class="buttons-container">
-    <a href="download_pdf.php" class="action-button">Télécharger PDF</a>
+    <a href="" class="action-button">Télécharger PDF</a>
 </div>
 
 <div class="back-to-home">
-    <a href="index.php">Retour à l'accueil</a>
+    <a href="/">Retour à l'accueil</a>
 </div>
 
 </body>
