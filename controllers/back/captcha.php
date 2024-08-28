@@ -1,23 +1,21 @@
 <?php
 include 'models/Database.php';
-include 'views/back/captcha.view.php';
 
-$sql = "SELECT id, q, r FROM captcha";
-$stmt = $dbh->query($sql);
+if (isset($_POST['delete_id'])) {
+    $delete_id = $_POST['delete_id'];
+    $delete_sql = "DELETE FROM captcha WHERE id = :id";
+    $stmt = $dbh->prepare($delete_sql);
+    $stmt->execute([':id' => $delete_id]);
 
-if ($stmt->rowCount() > 0) {
-
-    while ($row = $stmt->fetch()) {
-        echo "<tr>
-            <td>" . htmlspecialchars($row["id"]) . "</td>
-            <td>" . htmlspecialchars($row["q"]) . "</td>
-            <td>" . htmlspecialchars($row["r"]) . "</td>
-        </tr>";
-    }
-} else {
-
-    echo "<tr><td colspan='4'>0 résultats</td></tr>";
+    // Redirect to the same page to prevent form resubmission
+    header("Location: " . $_SERVER['PHP_SELF']);
+    exit;
 }
+
+// Définir la requête SQL pour récupérer les données de la table captcha
+$sql = "SELECT id, q, r FROM captcha";
+$stmt = $dbh->query($sql); // Exécuter la requête
+
 
 require 'views/back/captcha.view.php';
 ?>
