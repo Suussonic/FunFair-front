@@ -32,15 +32,15 @@ if (isset($_POST['captcha_answer']) && isset($_POST['captcha_id'])) {
             $cle = rand(10000,90000);  //creation de la cle
             $confirme = 0;
             $insererUsers = $bdd->prepare('INSERT INTO users (firstname, lastname, email, password, gender, confirme, cle) 
-                                            VALUES (:firstname, :lastname, :email, :password, :gender, :confirme, :cle)'); 
+                                            VALUES (:firstname, :lastname, :email, :password, :gender)'); 
             $insererUsers->execute([
                 'firstname' => $firstname,
                 'lastname' => $lastname,
                 'email' => $email,
                 'password' => $hasedPassword,
                 'gender' => $gender,
-                'confirme' => $confirme,
-                'cle' => $cle,
+                //'confirme' => $confirme,
+                //'cle' => $cle,
             ]);
                         
             $objet = 'Email de Confirmation';
