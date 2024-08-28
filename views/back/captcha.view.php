@@ -15,7 +15,8 @@
         <th>R</th>
     </tr>
 </table>
-<div class="buttons-container">
+</body>
+    <div class="buttons-container">
     <a href="" class="action-button">Télécharger PDF</a>
     <a href="back.php" class="action-button">Retour au Back</a>
 </div>
@@ -23,6 +24,4 @@
 <div class="back-to-home">
     <a href="/">Retour à l'accueil</a>
 </div>
-
-</body>
 </html>
