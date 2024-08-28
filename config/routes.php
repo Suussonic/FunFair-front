@@ -16,6 +16,9 @@ $routes = [
     '/login' => 'controllers/registration/login.php',
     '/register' => 'controllers/registration/register.php',
     '/logout' => 'controllers/registration/logout.php',
+
+    
+    '/account' => 'controllers/account.php',
     
     '/back' => 'controllers/back/back.php',
     '/captcha' => 'controllers/back/captcha.php',
