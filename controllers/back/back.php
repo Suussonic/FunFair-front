@@ -49,7 +49,7 @@ include 'Database.php';
         <th>Q</th>
         <th>R</th>
     </tr>
-    <?php
+    
     if ($stmt->rowCount() > 0) {
         // Afficher les données de chaque ligne
         while ($row = $stmt->fetch()) {
@@ -63,7 +63,7 @@ include 'Database.php';
         // Si aucun enregistrement n'est trouvé, afficher un message
         echo "<tr><td colspan='4'>0 résultats</td></tr>";
     }
-    ?>
+    
 </table>
 
 </body>
