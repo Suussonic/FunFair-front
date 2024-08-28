@@ -16,6 +16,8 @@ $routes = [
     '/login' => 'controllers/registration/login.php',
     '/register' => 'controllers/registration/register.php',
     '/logout' => 'controllers/registration/logout.php',
+    
+    '/back' => 'controllers/back/back.php',
 
     '/reservation/carrousel' => 'controllers/reservations/carrousel.php',
     '/reservation/grande-roue' => 'controllers/reservations/grande-roue.php',
