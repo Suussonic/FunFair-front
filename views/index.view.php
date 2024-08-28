@@ -10,9 +10,7 @@
 </head>
 
 <body>
-    <header>
-        <?php include 'partials/nav.php'; ?>
-    </header>
+    <?php include 'partials/nav.php'; ?>
     <div>
         <h1>Bienvenue à Fun Fair</h1>
         <p>Le parc d'attractions où le plaisir ne s'arrête jamais !</p>
