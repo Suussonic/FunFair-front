@@ -8,24 +8,18 @@ error_reporting(E_ALL);
 
 include_once('models/Database.php'); // Assurez-vous que ce fichier initialise une connexion PDO nommée $pdo
 
-if (isset($_SESSION['firstname'])) {
-    // Si l'utilisateur est connecté
-    if (!isset($_SESSION['id'])) {
-        // Si l'ID de session n'est pas défini, afficher un message d'erreur et arrêter l'exécution
-        echo 'Erreur : ID de session non défini';
-        exit;
-    }
-
-    $userId = $_SESSION['id']; // Supposons que l'ID de l'utilisateur est stocké dans $_SESSION['id']
+if (isset($_SESSION['firstname']) && isset($_SESSION['id'])) {
+    // Si l'utilisateur est connecté et que l'ID est défini
+    $userId = $_SESSION['id'];
 
     try {
         // Préparer une requête pour récupérer le rôle de l'utilisateur
         $stmt = $pdo->prepare('SELECT role FROM users WHERE id = :id');
         $stmt->execute(['id' => $userId]);
-        $user = $stmt->fetch();
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($user && $user['role'] == 'admin') {
-            echo '<a class="Connexion" href="/admin">Admin Panel</a>'; // Ajout d'un lien pour l'admin panel
+            echo '<a class="Connexion" href="/admin">Admin Panel</a>';
         }
         
         echo '<a class="Connexion" href="/logout">deconnexion</a>';
@@ -37,8 +31,9 @@ if (isset($_SESSION['firstname'])) {
     }
 
 } else {
-    // Si l'utilisateur n'est pas connecté
-    echo '<a class="Connexion" href="/login">Se Connecter</a>';
-    echo '<a class="Connexion" href="/back">autre back temporaire</a>';
+    // Si l'utilisateur n'est pas connecté ou si l'ID n'est pas défini
+    echo 'Erreur : Vous devez être connecté pour accéder à cette page.';
+    header('Location: /login'); // Rediriger vers la page de connexion
+    exit;
 }
 ?>
