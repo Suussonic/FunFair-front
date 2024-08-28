@@ -30,6 +30,15 @@
     }
     ?>
 </table>
+</body>
+    <div class="buttons-container">
+    <a href="/" class="action-button">Télécharger PDF</a>
+    <a href="/back" class="action-button">Retour au Back</a>
+</div>
+
+<div class="back-to-home">
+    <a href="/">Retour à l'accueil</a>
+</div>
 
 </body>
 </html>
