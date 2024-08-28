@@ -30,7 +30,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
     if ($user && password_verify($password, $user['password'])) {
         session_start();
         // Stocker les informations utilisateur dans la session
-        $_SESSION['userId'] = $user['id'];
+        $_SESSION['id'] = $user['id'];
         $_SESSION['firstname'] = $user['firstname'];
         $_SESSION['lastname'] = $user['lastname'];
         $_SESSION['user'] = $user;
