@@ -23,13 +23,4 @@ $routes = [
     '/back' => 'controllers/back/back.php',
     '/captcha' => 'controllers/back/captcha.php',
     '/user'=> 'controllers/back/fetch_user.php',
-
-    '/reservation/carrousel' => 'controllers/reservations/carrousel.php',
-    '/reservation/grande-roue' => 'controllers/reservations/grande-roue.php',
-    '/reservation/manoir-hante' => 'controllers/reservations/manoir-hante.php',
-    '/reservation/montagnes-russes' => 'controllers/reservations/montagnes-russes.php',
-    '/reservation/petit-train' => 'controllers/reservations/petit-train.php',
-    '/reservation/riviere-sauvage' => 'controllers/reservations/riviere-sauvage.php',
-    '/reservation/tasses-tournantes' => 'controllers/reservations/tasses-tournantes.php',
-    '/reservation/tour-chute-libre' => 'controllers/reservations/tour-chute-libre.php',
   ];

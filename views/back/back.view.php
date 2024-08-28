@@ -23,4 +23,5 @@
         </div>
     </div>
 </body>
+<script src="public/assets/js/easterEgg.js"></script>
 </html>
