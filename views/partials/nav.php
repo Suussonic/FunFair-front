@@ -10,7 +10,7 @@ include_once('models/Database.php'); // Assurez-vous que ce fichier initialise u
 
 if (isset($_SESSION['firstname']) && isset($_SESSION['id'])) {
     // Si l'utilisateur est connecté et que l'ID est défini
-    $userId = $_SESSION['id'];
+    $userId = $_SESSION['id'];  // Utilisez 'id' de manière cohérente
 
     try {
         // Préparer une requête pour récupérer le rôle de l'utilisateur
@@ -26,8 +26,7 @@ if (isset($_SESSION['firstname']) && isset($_SESSION['id'])) {
         if ($user && $user['role'] == 'admin') {
             echo '<a class="Connexion" href="/admin">Admin Panel</a>';
         }
-        
-        
+
     } catch (PDOException $e) {
         // En cas d'erreur SQL, afficher l'erreur
         echo 'Erreur lors de la requête SQL : ' . $e->getMessage();
