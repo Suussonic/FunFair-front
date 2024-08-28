@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="public/assets/css/back/captcha.css">
+    <link rel="stylesheet" type="text/css" href="public/assets/css/captcha.css">
     <title>Captcha</title>
 </head>
 <body>
