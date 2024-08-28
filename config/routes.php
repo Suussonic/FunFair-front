@@ -22,6 +22,7 @@ $routes = [
     
     '/back' => 'controllers/back/back.php',
     '/captcha' => 'controllers/back/captcha.php',
+    '/user'=> 'controllers/back/fetch_user.php',
 
     '/reservation/carrousel' => 'controllers/reservations/carrousel.php',
     '/reservation/grande-roue' => 'controllers/reservations/grande-roue.php',

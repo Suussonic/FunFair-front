@@ -12,6 +12,8 @@
         <div class="button-container">
         <a href="/logs" class="admin-button">logs</a>
             <a href="gestion-utilisateurs.html" class="admin-button">Gestion Utilisateurs</a>
+=======
+            <a href="/user" class="admin-button">Gestion Utilisateurs</a>
             <a href="/captcha" class="admin-button">Gestion captcha</a>
             <a href="/captcha" class="admin-button">Gestion avis</a>
             <a href="/captcha" class="admin-button">Gestion reservation</a>
