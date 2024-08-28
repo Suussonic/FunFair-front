@@ -10,7 +10,7 @@
     <div class="container">
         <h1>Administration Fun Fair</h1>
         <div class="button-container">
-            <a href="gestion-utilisateurs.html" class="admin-button">Gestion Utilisateurs</a>
+            <a href="/user" class="admin-button">Gestion Utilisateurs</a>
             <a href="/captcha" class="admin-button">Gestion captcha</a>
             <a href="gestion-horaires.html" class="admin-button">Gestion Horaires</a>
             <a href="parametres.html" class="admin-button">Paramètres</a>
