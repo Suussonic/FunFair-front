@@ -1,6 +1,6 @@
 <?php
-require "../phpmailer/PHPMailerAutoload.php";
-require_once('/models/Database.php');
+require "phpmailer/PHPMailerAutoload.php";
+require_once('models/Database.php');
 
 function sendMail($email, $objet, $body) {
                     try {

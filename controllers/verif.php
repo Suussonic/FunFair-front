@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once('../models/Database.php');
+require_once('models/Database.php');
 
 if(isset($_GET['id']) AND !empty($_GET['id']) AND isset($_GET['cle']) AND !empty($_GET['cle'])){
 
@@ -14,10 +14,10 @@ if(isset($_GET['id']) AND !empty($_GET['id']) AND isset($_GET['cle']) AND !empty
             $updateConfirmation = $bdd->prepare('UPDATE user SET confirme = ? WHERE id = ?');
             $updateConfirmation->execute(array(1, $getid));
             $_SESSION['cle'] = $getcle;
-            header('Location: ../index.php');
+            header('Location: /');
         }else{
             $_SESSION['cle'] = $getcle;
-            header('Location: ../index.php');
+            header('Location: /');
         }
     }else{
         echo "Votre identifiant est incorrect";
