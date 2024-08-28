@@ -1,9 +1,9 @@
 <?php
 
-include_once('models/Database.php');
-include('config/register.php');
+include_once('../../models/Database.php');
+include('../../config/register.php');
 include('../verif.php');
-include('../../mailer.php');
+include('../mailer.php');
 
 
 if (isset($_POST['captcha_answer']) && isset($_POST['captcha_id'])) {
