@@ -10,7 +10,11 @@
     <div class="container">
         <h1>Administration Fun Fair</h1>
         <div class="button-container">
+<<<<<<< HEAD
         <a href="/logs" class="admin-button">logs</a>
+=======
+        <a href="/logs" class="admin-button">logs</a
+>>>>>>> 505d118d0624230a73f3465d794f69f8767e6b62
             <a href="/user" class="admin-button">Gestion Utilisateurs</a>
             <a href="/captcha" class="admin-button">Gestion captcha</a>
             <a href="/captcha" class="admin-button">Gestion avis</a>
