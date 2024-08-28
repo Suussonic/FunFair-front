@@ -17,6 +17,7 @@
 </table>
 <div class="buttons-container">
     <a href="" class="action-button">Télécharger PDF</a>
+    <a href="back.php" class="action-button">Retour au Back</a>
 </div>
 
 <div class="back-to-home">
