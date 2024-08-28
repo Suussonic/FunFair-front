@@ -18,12 +18,15 @@ if (isset($_SESSION['firstname']) && isset($_SESSION['id'])) {
         $stmt->execute(['id' => $userId]);
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
+        // Afficher le bouton "Back" pour tous les utilisateurs connectés
+        echo '<a class="Connexion" href="/back">Back</a>';
+
+        // Si l'utilisateur est admin, afficher un lien supplémentaire pour le panneau d'administration
         if ($user && $user['role'] == 'admin') {
             echo '<a class="Connexion" href="/admin">Admin Panel</a>';
         }
         
-        echo '<a class="Connexion" href="/logout">deconnexion</a>';
-        echo '<a class="Connexion" href="/back">back</a>';
+        echo '<a class="Connexion" href="/logout">Déconnexion</a>';
         
     } catch (PDOException $e) {
         // En cas d'erreur SQL, afficher l'erreur
@@ -32,8 +35,7 @@ if (isset($_SESSION['firstname']) && isset($_SESSION['id'])) {
 
 } else {
     // Si l'utilisateur n'est pas connecté ou si l'ID n'est pas défini
-    echo 'Erreur : Vous devez être connecté pour accéder à cette page.';
-    header('Location: /login'); // Rediriger vers la page de connexion
-    exit;
+    echo '<a class="Connexion" href="/login">Se Connecter</a>';
+    echo '<a class="Connexion" href="/back">Back</a>';
 }
 ?>
