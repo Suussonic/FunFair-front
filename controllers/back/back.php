@@ -1,7 +1,5 @@
 <?php
-if (isset($_SESSION['firstname'])) {
-    if ($_SESSION['role'] === 'admin') echo header("Location: /");
-} 
+include 'Database.php';
 
 
 require 'views/back/back.view.php';
