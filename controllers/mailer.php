@@ -1,10 +1,10 @@
 <?php
-require "../phpmailer/PHPMailerAutoload.php";
-require_once('/models/Database.php');
+require "phpmailer/PHPMailerAutoload.php";
+require_once('models/Database.php');
 
 function sendMail($email, $objet, $body) {
                     try {
-                        $query = $dbh->prepare("SELECT firstname FROM user WHERE email = :email;");
+                        $query = $dbh->prepare("SELECT firstname FROM users WHERE email = :email;");
                         $query->execute([
                             'email' => $email
                         ]);
