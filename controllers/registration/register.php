@@ -2,7 +2,7 @@
 
 include_once('models/Database.php');
 include('controllers/mailer.php');
-include('controllers/verif.php');
+//include('controllers/verif.php');
 include('config/register.php');
 
 

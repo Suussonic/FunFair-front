@@ -24,7 +24,7 @@ if(isset($_GET['id']) AND !empty($_GET['id']) AND isset($_GET['cle']) AND !empty
     }
 
 }else{
-    //echo "Aucun utilisateur trouvé"; 
+    echo "Aucun utilisateur trouvé"; 
 }
 
 ?>
