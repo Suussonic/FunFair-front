@@ -19,12 +19,12 @@ if (isset($_SESSION['firstname']) && isset($_SESSION['id'])) {
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
         // Afficher le bouton "Back" pour tous les utilisateurs connectés
-        echo '<a class="Connexion" href="/account">Mon compte</a>';
-        echo '<a class="Connexion" href="/logout">Déconnexion</a>';
+        echo '<a class="cta-button" href="/account">Mon compte</a>';
+        echo '<a class="cta-button" href="/logout">Déconnexion</a>';
 
         // Si l'utilisateur est admin, afficher un lien supplémentaire pour le panneau d'administration
         if ($user && $user['role'] == 'admin') {
-            echo '<a class="Connexion" href="https://admin.funfair.ovh/">Admin Panel</a>';
+            echo '<a class="cta-button" href="https://admin.funfair.ovh/">Admin Panel</a>';
         }
 
     } catch (PDOException $e) {
@@ -34,6 +34,6 @@ if (isset($_SESSION['firstname']) && isset($_SESSION['id'])) {
 
 } else {
     // Si l'utilisateur n'est pas connecté ou si l'ID n'est pas défini
-    echo '<a class="Connexion" href="/login">Se Connecter</a>';
+    echo '<a class="cta-button" href="/login">Se Connecter</a>';
 }
 ?>
