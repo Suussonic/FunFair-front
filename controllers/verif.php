@@ -11,7 +11,7 @@ if(isset($_GET['id']) AND !empty($_GET['id']) AND isset($_GET['cle']) AND !empty
     if($recupUser->rowCount() > 0){
         $userInfos = $recupUser->fetch();
         if($userInfos['confirme'] != 1){
-            $updateConfirmation = $bdd->prepare('UPDATE user SET confirme = ? WHERE id = ?');
+            $updateConfirmation = $bdd->prepare('UPDATE users SET confirme = ? WHERE id = ?');
             $updateConfirmation->execute(array(1, $getid));
             $_SESSION['cle'] = $getcle;
             header('Location: /');
