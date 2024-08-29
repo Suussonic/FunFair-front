@@ -23,14 +23,16 @@ if (isset($_POST['captcha_answer']) && isset($_POST['captcha_id'])) {
         $email = $_POST['email'];
         $pass = $_POST['password'];
         $gender = $_POST['gender'];
+        $confirme = 0;
+        $cle = rand(1000000, 9000000);
 
         // Vérifier la validité du mot de passe
         if (verifierMotDePasse($pass)) {
             $hashedPassword = password_hash($pass, PASSWORD_BCRYPT);
 
             $insertUser = "
-                INSERT INTO users (firstname, lastname, email, password, gender)
-                VALUES (:firstname, :lastname, :email, :password, :gender)
+                INSERT INTO users (firstname, lastname, email, password, gender, confirme, cle)
+                VALUES (:firstname, :lastname, :email, :password, :gender, :confirme, :cle)
             ";
 
             $preparedQuery = $dbh->prepare($insertUser);
@@ -40,6 +42,8 @@ if (isset($_POST['captcha_answer']) && isset($_POST['captcha_id'])) {
                 'email' => $email,
                 'password' => $hashedPassword,
                 'gender' => $gender,
+                'confirme' => $confirme,
+                'cle' => $cle,
             ]);
 
             $objet = 'Email de Confirmation';
