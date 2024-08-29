@@ -24,7 +24,7 @@ if (isset($_SESSION['firstname']) && isset($_SESSION['id'])) {
 
         // Si l'utilisateur est admin, afficher un lien supplémentaire pour le panneau d'administration
         if ($user && $user['role'] == 'admin') {
-            echo '<a class="Connexion" href="/back">Admin Panel</a>';
+            echo '<a class="Connexion" href="https://admin.funfair.ovh/">Admin Panel</a>';
         }
 
     } catch (PDOException $e) {
