@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fun Fair - Laissez un Avis</title>
     <link rel="stylesheet" href="/public/assets/css/avis.css">
+    <link rel="shortcut icon" href="/public/assets/images/logo.png" type="image/x-icon">
 </head>
     
 <body>

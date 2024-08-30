@@ -8,6 +8,7 @@
     <script type="text/javascript" src="/public/assets/js/attractionsfilter.js"></script>
     <link rel="stylesheet" type="text/css" href="/public/assets/css/partials.css">
     <link rel="stylesheet" href="/public/assets/css/attractions.css">
+    <link rel="shortcut icon" href="/public/assets/images/logo.png" type="image/x-icon">
 </head>
 
 <body>

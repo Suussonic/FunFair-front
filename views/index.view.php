@@ -7,6 +7,7 @@
     <title>Fun Fair - Parc d'Attractions</title>
     <link rel="stylesheet" type="text/css" href="/public/assets/css/partials.css">
     <link rel="stylesheet" type="text/css" href="/public/assets/css/index.css">
+    <link rel="shortcut icon" href="/public/assets/images/logo.png" type="image/x-icon">
 </head>
 
 <body>
