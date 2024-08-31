@@ -22,7 +22,7 @@ $stripeid = $_GET["stripeid"];
   </header>
 
   <div class="reservation-form">
-  <form method="POST" action="checkoutsession">
+  <form method="POST">
             <!--<input type="text" id="name" name="name" placeholder="Nom :" required>-->
 
             <input type="email" id="email" name="email" placeholder="Email :" required>
