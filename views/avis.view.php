@@ -37,4 +37,5 @@
         <a href="/">Retour à l'accueil</a>
     </div>
 </body>
+     <?php include 'partials/footer.php'; ?>
 </html>
