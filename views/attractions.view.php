@@ -12,7 +12,6 @@
 </head>
 
 <body>
-<?php include 'partials/nav.php'; ?>
     <h1>Nos Attractions</h1>
 
     <div class="filter">
