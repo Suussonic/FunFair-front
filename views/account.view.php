@@ -36,5 +36,5 @@ include 'header.php';
         </div>
     </div>
 </body>
-<
+ <?php include 'partials/footer.php'; ?>
 </html>
