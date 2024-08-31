@@ -17,11 +17,11 @@
      <div style="flex: 1; min-width: 200px; padding: 10px;">
                 <h3 style="color: #ff6f61; margin-bottom: 15px;">Liens rapides</h3>
                 <ul style="list-style: none; padding: 0;">
-                    <li><a href="HTML/attractions.html" style="color: #f0f0f0; text-decoration: none;">Attractions</a></li>
-                    <li><a href="HTML/horaires.html" style="color: #f0f0f0; text-decoration: none;">Horaires</a></li>
-                    <li><a href="HTML/billets.html" style="color: #f0f0f0; text-decoration: none;">Billets</a></li>
-                    <li><a href="HTML/avis.html" style="color: #f0f0f0; text-decoration: none;">Laissez un Avis</a></li>
-                    <li><a href="HTML/contact.html" style="color: #f0f0f0; text-decoration: none;">Contact</a></li>
+                    <li><a href="views/attractions.views/php" style="color: #f0f0f0; text-decoration: none;">Attractions</a></li>
+                    <li><a href="views/horaires.views.php" style="color: #f0f0f0; text-decoration: none;">Horaires</a></li>
+                    <li><a href="views/billets.views.php" style="color: #f0f0f0; text-decoration: none;">Billets</a></li>
+                    <li><a href="views/avis.views.php" style="color: #f0f0f0; text-decoration: none;">Laissez un Avis</a></li>
+                    <li><a href="views/contact.views.php" style="color: #f0f0f0; text-decoration: none;">Contact</a></li>
                 </ul>
             </div>
     <div>
