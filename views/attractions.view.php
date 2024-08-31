@@ -37,7 +37,7 @@
             <h2>Intimidator 305</h2>
             <p>Des sensations fortes garanties pour les amateurs d'adrénaline.</p>
             <p class="age-requirement">Âge minimum: 10+</p>
-            <a class="reserve-button" href="/checkout?name=Intimidator+305&">Réserver</a>
+            <a class="reserve-button" href="/checkout?name=Intimidator+305&stripeid=intimidator">Réserver</a>
         </div>
     </div>
 
