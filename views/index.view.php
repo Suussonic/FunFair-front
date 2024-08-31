@@ -14,8 +14,12 @@
     <header>
         <?php include 'partials/nav.php'; ?>
     </header>
-     <div style="flex: 1; min-width: 200px; padding: 10px;">
-                <h3 style="color: #ff6f61; margin-bottom: 15px;">Liens rapides</h3>
+    <div>
+        <h1>Bienvenue à Fun Fair</h1>
+        <p>Le parc d'attractions où le plaisir ne s'arrête jamais !</p>
+    </div>
+       <div style="flex: 1; min-width: 200px; padding: 10px;">
+            <h3 style="color: #ff6f61; margin-bottom: 15px;">Liens rapides</h3>
                 <ul style="list-style: none; padding: 0;">
                     <li><a href="views/attractions.views/php" style="color: #f0f0f0; text-decoration: none;">Attractions</a></li>
                     <li><a href="views/horaires.views.php" style="color: #f0f0f0; text-decoration: none;">Horaires</a></li>
@@ -24,10 +28,6 @@
                     <li><a href="views/contact.views.php" style="color: #f0f0f0; text-decoration: none;">Contact</a></li>
                 </ul>
             </div>
-    <div>
-        <h1>Bienvenue à Fun Fair</h1>
-        <p>Le parc d'attractions où le plaisir ne s'arrête jamais !</p>
-    </div>
 
     <a href="/attractions" class="cta-button">Découvrez nos attractions</a>
     <?php include 'partials/footer.php'; ?>
