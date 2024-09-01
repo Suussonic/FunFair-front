@@ -1,10 +1,10 @@
 <?php
 
-    $user = 'root';
-    $password = 'root';
+    $user = 'rot';
+    $password = 'web';
     
     try {
-        $dbh = new PDO('mysql:host=funfair.ovh;dbname=pa;charset=utf8mb4', $user, $password);
+        $dbh = new PDO('mysql:host=https://funfair.ovh;dbname=pa;charset=utf8mb4', $user, $password);
     } catch (PDOException $e) {
         var_dump($e);
     }
