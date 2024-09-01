@@ -44,6 +44,18 @@
             <p class="age-requirement">Âge minimum: 15+</p>
             <a class="reserve-button" href="/checkout?name=Le+Train+Fantôme&stripeid=letrainfantome">Réserver</a>
         </div>
+        <div class="attraction-item" data-age="8">
+            <h2>Les Autos Tamponneuses</h2>
+            <p>Amusez-vous à heurter vos amis en toute sécurité dans nos voitures colorées.</p>
+            <p class="age-requirement">Âge minimum: 8+</p>
+            <a class="reserve-button" href="/checkout?name=Les+Autos+Tamponneuses&stripeid=autostamponneuses">Réserver</a>
+        </div>
+        <div class="attraction-item" data-age="12">
+            <h2>Le Grand Huit</h2>
+            <p>Vivez une montée d'adrénaline avec des virages serrés et des loopings impressionnants sur notre montagnes russes emblématiques.</p>
+            <p class="age-requirement">Âge minimum: 12+</p>
+            <a class="reserve-button" href="/checkout?name=Le+Grand+Huit&stripeid=grandhuit">Réserver</a>
+        </div>
     </div>
 
     <div class="back-to-home">
