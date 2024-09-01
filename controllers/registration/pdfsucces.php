@@ -15,30 +15,45 @@ try {
 // Inclure la bibliothèque FPDF
 require('../../fpdf186/fpdf.php');
 
-// Vérifier si les paramètres email et date sont passés dans l'URL
-if (!isset($_GET['email']) || !isset($_GET['date'])) {
-    die("Les paramètres 'email' et 'date' sont requis.");
+// Vérifier si les paramètres sont passés dans l'URL
+if (!isset($_GET['email']) || !isset($_GET['date']) || !isset($_GET['heure'])) {
+    die("Les paramètres 'email', 'date', et 'heure' sont requis.");
 }
 
 $email = $_GET['email'];
 $date = $_GET['date'];
+$heure = $_GET['heure'];
 
-// Récupérer les informations de réservation pour l'utilisateur en fonction de l'email et de la date
-$sql = "SELECT a.name as attraction_name, r.montant, r.quantity, r.jour, r.heure, r.email 
+// Récupérer les informations de réservation pour l'utilisateur en fonction de l'email, de la date, et de l'heure
+$sql = "SELECT r.id, r.attractionid, r.montant, r.quantity, r.jour, r.heure, r.email 
         FROM reservations r
-        JOIN attractions a ON r.attractionid = a.id
-        WHERE r.email = :email AND r.jour = :date";
+        WHERE r.email = :email AND r.jour = :date AND r.heure = :heure";
 
 try {
     $stmt = $dbh->prepare($sql);
     $stmt->bindParam(':email', $email, PDO::PARAM_STR);
     $stmt->bindParam(':date', $date, PDO::PARAM_STR);
+    $stmt->bindParam(':heure', $heure, PDO::PARAM_STR);
     $stmt->execute();
     $reservation = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if (!$reservation) {
-        die("Aucune réservation trouvée pour cet utilisateur à cette date.");
+        die("Aucune réservation trouvée pour cet utilisateur à cette date et heure.");
     }
+
+    // Récupérer le nom de l'attraction via l'attractionid
+    $attractionSql = "SELECT nom FROM attractions WHERE id = :attractionid";
+    $attractionStmt = $dbh->prepare($attractionSql);
+    $attractionStmt->bindParam(':attractionid', $reservation['attractionid'], PDO::PARAM_INT);
+    $attractionStmt->execute();
+    $attraction = $attractionStmt->fetch(PDO::FETCH_ASSOC);
+
+    if (!$attraction) {
+        die("Aucune attraction trouvée pour cet ID.");
+    }
+
+    $reservation['attraction_name'] = $attraction['nom'];
+    
 } catch (PDOException $e) {
     die("Erreur lors de la récupération des données : " . $e->getMessage());
 }
