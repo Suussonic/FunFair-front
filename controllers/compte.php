@@ -105,7 +105,7 @@ $user = $preparedGetUser->fetch();
 
     </form>
     <div style="margin-top: 20px;">
-        <a href="http://funfair.ovh" class="button-link">Aller à Funfair</a>
+        <a href="http://funfair.ovh" class="button-link">Retour à Funfair</a>
     </div>
 </body>
 </html>
