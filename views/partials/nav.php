@@ -21,6 +21,7 @@ if (isset($_SESSION['firstname']) && isset($_SESSION['id'])) {
         // Afficher le bouton "Back" pour tous les utilisateurs connectés
         echo '<a class="cta-button" href="/account">Mon compte</a>';
         echo '<a class="cta-button" href="/logout">Déconnexion</a>';
+        echo '<a class="cta-button" href="/avis">Avis</a>';
 
         // Si l'utilisateur est admin, afficher un lien supplémentaire pour le panneau d'administration
         if ($user && $user['role'] == 'admin') {
