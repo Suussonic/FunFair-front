@@ -21,7 +21,6 @@ if (isset($_SESSION['firstname']) && isset($_SESSION['id'])) {
      
         echo '<a class="cta-button" href="/account">Mon compte</a>';
         echo '<a class="cta-button" href="/logout">Déconnexion</a>';
-        echo '<a class="cta-button" href="/avis">Avis</a>';
 
        
         if ($user && $user['role'] == 'admin') {
