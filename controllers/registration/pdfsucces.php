@@ -4,18 +4,25 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 $user = 'root';
-    $password = 'root';
-    
-    try {
-        $dbh = new PDO('mysql:host=localhost;dbname=pa;charset=utf8mb4', $user, $password);
-    } catch (PDOException $e) {
-        var_dump($e);
-    }
+$password = 'root';
+
+try {
+    $dbh = new PDO('mysql:host=localhost;dbname=pa;charset=utf8mb4', $user, $password);
+} catch (PDOException $e) {
+    var_dump($e);
+}
+
 // Inclure la bibliothèque FPDF
 require('../../fpdf186/fpdf.php');
 
+// Vérification de la variable reservation_id
+if (isset($_GET['reservation_id'])) {
+    $reservationId = $_GET['reservation_id'];
+} else {
+    die("L'ID de réservation n'est pas spécifié.");
+}
+
 // Récupérer les informations de réservation pour l'utilisateur
-$reservationId = $_GET['reservation_id'];
 $sql = "SELECT r.id, a.name as attraction_name, r.montant, r.quantity, r.jour, r.heure, r.email 
         FROM reservations r
         JOIN attractions a ON r.attractionid = a.id
