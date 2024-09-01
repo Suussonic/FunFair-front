@@ -32,7 +32,8 @@ body {
   input[type="text"],
   textarea {
     width: 100%;
-    padding: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     margin-bottom: 15px;
     border-radius: 5px;
     border: none;
