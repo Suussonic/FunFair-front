@@ -25,7 +25,7 @@
                 <a href="/horaire">Horaires</a>
                 <a href="/billets">Billets</a>
                 <a href="/forum">Forum</a>
-                <a href="/avis">Laissez un Avis</a>
+                <a href="">concours de dessins</a>
                 <a href="/contact">Contact</a>
             </nav>
 
