@@ -2,7 +2,6 @@
 error_reporting(E_ALL); 
 ini_set("display_errors", 1);
 include_once('models/Database.php');
-include('logs.php');
 
 $errorInfo = false;
 
@@ -38,7 +37,28 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
         $_SESSION['lastname'] = $user['lastname'];
         $_SESSION['user'] = $user;
 
-        insert_logs('connexion');
+        // --------------------------------------------
+        $ip = $_SERVER['REMOTE_ADDR'];
+        $date_now = date('Y-m-d H:i:s');
+        $action = 'connexion';
+        $firstname = isset($_SESSION['firstname']) ? $_SESSION['firstname'] : '';
+        $email = isset($_SESSION['user']['email']) ? $_SESSION['user']['email'] : '';
+    
+        $logs_req = 'INSERT INTO logs (action, ip, date, firstname, email) VALUES (:action, :ip, :date, :firstname, :email)';
+        $logs_query = $dbh->prepare($logs_req);
+    
+        try {
+            $logs_query->execute([
+                ':action' => $action,
+                ':ip' => $ip,
+                ':date' => $date_now,
+                ':firstname' => $firstname,
+                ':email' => $email
+            ]);
+        } catch (PDOException $e) {
+            die('Erreur lors de l\'insertion du log : ' . $e->getMessage());
+        }
+        // --------------------------------------------
         header('location:/'); // Rediriger vers la page d'accueil
         exit;
     } else {
