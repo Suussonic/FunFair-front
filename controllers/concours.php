@@ -5,6 +5,9 @@ error_reporting(E_ALL);
 require_once('models/Database.php');
 
 if (isset($_POST['upload'])) {
+    if(!isset($_SESSION['id'])) {
+        header('Location: https://funfair.ovh/login');
+    }
     if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
         $image_name = $_FILES['image']['name'];
         $image_data = file_get_contents($_FILES['image']['tmp_name']);
