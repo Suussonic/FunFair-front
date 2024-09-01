@@ -3,6 +3,7 @@ global $dbh;
 session_start();
 include_once('models/Database.php');
 
+
 if ( $_SERVER['REQUEST_METHOD'] === 'POST' ) {
     $editUserSql = '
         UPDATE users
@@ -41,6 +42,8 @@ $user = $preparedGetUser->fetch();
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/public/assets/css/partials.css">
+    <link rel="stylesheet" href="/public/assets/css/compte.css">
     <title>Mon compte</title>
 </head>
 <body>
