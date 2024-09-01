@@ -2,12 +2,6 @@
 include 'models/Database.php';
 session_start();
 
-// Vérifier si l'utilisateur est connecté
-if (!isset($_SESSION['user_id']) || !isset($_SESSION['username'])) {
-    header("Location: /login"); // Redirige vers la page de connexion si non connecté
-    exit;
-}
-
 // Vérifier si le formulaire a été soumis
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Récupérer et valider les données du formulaire
