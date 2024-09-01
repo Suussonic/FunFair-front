@@ -6,12 +6,12 @@ if(isset($_GET['id']) AND !empty($_GET['id']) AND isset($_GET['cle']) AND !empty
 
     $getid = $_GET['id'];
     $getcle = $_GET['cle'];
-    $recupUser = $bdd->prepare('SELECT * FROM users WHERE id = ? AND cle = ?');
+    $recupUser = $bdh->prepare('SELECT * FROM users WHERE id = ? AND cle = ?');
     $recupUser->execute(array($getid, $getcle));
     if($recupUser->rowCount() > 0){
         $userInfos = $recupUser->fetch();
         if($userInfos['confirme'] != 1){
-            $updateConfirmation = $bdd->prepare('UPDATE users SET confirme = ? WHERE id = ?');
+            $updateConfirmation = $bdh->prepare('UPDATE users SET confirme = ? WHERE id = ?');
             $updateConfirmation->execute(array(1, $getid));
             $_SESSION['cle'] = $getcle;
             header('Location: /');
