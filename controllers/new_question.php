@@ -8,14 +8,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $title = trim($_POST['title']);
     $description = trim($_POST['description']);
     $content = trim($_POST['content']);
-    $id_author = $_SESSION['user_id'];
-    $name_author = $_SESSION['username'];
+    $id_author = $_SESSION['userId'];
+    $name_author = $_SESSION['firstname'];
 
     // Vérification que les champs ne sont pas vides
     if (!empty($title) && !empty($description) && !empty($content)) {
         try {
             // Préparer la requête d'insertion
-            $stmt = $dbh->prepare("INSERT INTO forum (title, description, content, id_author, name_author) VALUES (:title, :description, :content, :id_author, :name_author)");
+            $stmt = $dbh->prepare("INSERT INTO question (title, description, content, id_author, name_author) VALUES (:title, :description, :content, :id_author, :name_author)");
 
             // Exécuter la requête avec les paramètres
             $stmt->execute([
