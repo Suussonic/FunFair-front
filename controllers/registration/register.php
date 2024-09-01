@@ -109,9 +109,9 @@ if (isset($_POST['captcha_answer']) && isset($_POST['captcha_id'])) {
                             <div class="content">
                                 <p>Bonjour,</p>
                                 <p>Merci de vous être inscrit sur FunFair. Pour finaliser votre inscription et vérifier votre adresse e-mail, veuillez cliquer sur le bouton ci-dessous :</p>
-                                <a href="https://funfair.ovh/controllers/verif.php?id='.$_SESSION['id'].'&cle='.$cle.'" class="button">Vérifier mon e-mail</a>
+                                <a href="https://funfair.ovh/verif.php?id='.$_SESSION['id'].'&cle='.$cle.'" class="button">Vérifier mon e-mail</a>
                                 <p>Si le bouton ne fonctionne pas, copiez et collez le lien suivant dans votre navigateur :</p>
-                                <p><a href="https://funfair.ovh/controllers/verif.php?id='.$_SESSION['id'].'&cle='.$cle.'">https://funfair.ovh/controllers/verif.php?id='.$_SESSION['id'].'&cle='.$cle.'</a></p>
+                                <p><a href="https://funfair.ovh/verif.php?id='.$_SESSION['id'].'&cle='.$cle.'">https://funfair.ovh/verif.php?id='.$_SESSION['id'].'&cle='.$cle.'</a></p>
                                 <p>Si vous n\'avez pas créé de compte sur FunFair, veuillez ignorer cet e-mail.</p>
                             </div>
                             <div class="footer">
