@@ -12,14 +12,13 @@
 
 <body>
     <header>
-        <?php include 'partials/nav.php'; ?>
+        
     </header>
     <div>
-        <h1>Bienvenue à Fun Fair</h1>
+        <h1>Bienvenue à Fun Fair <?php include 'partials/nav.php'; ?></h1>
         <p>Le parc d'attractions où le plaisir ne s'arrête jamais !</p>
     </div>
 
-    <h3>Liens rapides</h3>
             <nav class=".nav-bar">
                 <a href="/attractions">Attractions</a>
                 <a href="/horaire">Horaires</a>
