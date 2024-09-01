@@ -7,14 +7,11 @@ require 'views/avis.view.php';
 ?>
 
 <?php
-// Inclure la base de données et démarrer la session
+
 include 'models/Database.php';
 session_start();
 
-// Création de la connexion à la base de données
-$connexion = new mysqli($serveur, $utilisateur, $motdepasse, $basededonnees);
 
-// Vérification de la connexion
 if ($connexion->connect_error) {
     die("Connexion échouée : " . $connexion->connect_error);
 }
