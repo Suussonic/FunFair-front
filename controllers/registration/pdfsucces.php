@@ -47,25 +47,25 @@ class PDF extends FPDF
     }
 }
 
-// Suppression de la base de données, car les informations sont passées directement par GET
-
 // Vérifier si les paramètres GET sont passés
 if (!isset($_GET['q']) || !isset($_GET['i']) || !isset($_GET['p']) || !isset($_GET['email']) || !isset($_GET['date']) || !isset($_GET['heure'])) {
     die("Paramètres manquants.");
 }
 
 $reservation = [
-    'attraction_name' => $_GET['i'], // Nom de l'attraction
-    'montant' => $_GET['p'],         // Montant
-    'quantity' => $_GET['q'],        // Quantité
-    'jour' => $_GET['date'],         // Date
-    'heure' => $_GET['heure'],       // Heure
-    'email' => $_GET['email'],       // Email
+    'attraction_name' => htmlspecialchars($_GET['i']), // Nom de l'attraction
+    'montant' => htmlspecialchars($_GET['p']),         // Montant
+    'quantity' => htmlspecialchars($_GET['q']),        // Quantité
+    'jour' => htmlspecialchars($_GET['date']),         // Date
+    'heure' => htmlspecialchars($_GET['heure']),       // Heure
+    'email' => htmlspecialchars($_GET['email']),       // Email
 ];
 
 // Générer le PDF
 $pdf = new PDF();
 $pdf->AddPage();
 $pdf->ReservationTable($reservation);
+
+// Forcer le téléchargement du fichier PDF
 $pdf->Output('D', 'reservation_' . $reservation['email'] . '_' . $reservation['jour'] . '.pdf');
 ?>
