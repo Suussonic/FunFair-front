@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fun Fair - Billets</title>
     <link rel="stylesheet" href="/public/assets/css/billets.css">
+    <link rel="shortcut icon" href="/public/assets/images/logo.png" type="image/x-icon">
 </head>
     
 <body>
@@ -50,4 +51,5 @@
         <a href="/">Retour à l'accueil</a>
     </div>
 </body>
+     <?php include 'partials/footer.php'; ?>
 </html>

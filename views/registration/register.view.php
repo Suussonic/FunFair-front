@@ -31,7 +31,7 @@ $_SESSION['captcha_question'] = $captcha['q'];
         <form method="POST">
             <h1>Inscription :</h1>
             <div>
-                <input id="firstname" type="text" name="firstname" placeholder="Pseudo" required>
+                <input id="firstname" type="text" name="firstname" placeholder="Prénom" required>
             </div>
             <div>
                 <input id="lastname" type="text" name="lastname" placeholder="Nom" required>

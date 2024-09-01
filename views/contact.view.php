@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fun Fair - Contact</title>
     <link rel="stylesheet" href="/public/assets/css/contact.css">
+    <link rel="shortcut icon" href="/public/assets/images/logo.png" type="image/x-icon">
 </head>
     
 <body>

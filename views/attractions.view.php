@@ -8,10 +8,10 @@
     <script type="text/javascript" src="/public/assets/js/attractionsfilter.js"></script>
     <link rel="stylesheet" type="text/css" href="/public/assets/css/partials.css">
     <link rel="stylesheet" href="/public/assets/css/attractions.css">
+    <link rel="shortcut icon" href="/public/assets/images/logo.png" type="image/x-icon">
 </head>
 
 <body>
-<?php include 'partials/nav.php'; ?>
     <h1>Nos Attractions</h1>
 
     <div class="filter">
@@ -30,13 +30,13 @@
             <h2>La Grande Roue</h2>
             <p>Profitez d'une vue imprenable sur le parc depuis les hauteurs.</p>
             <p class="age-requirement">Âge minimum: 5+</p>
-            <a class="reserve-button" href="/checkout?name=La+Grande+Roue">Réserver</a>
+            <a class="reserve-button" href="/checkout?name=La+Grande+Roue&stripeid=lagranderoue">Réserver</a>
         </div>
         <div class="attraction-item" data-age="15">
             <h2>Intimidator 305</h2>
             <p>Des sensations fortes garanties pour les amateurs d'adrénaline.</p>
             <p class="age-requirement">Âge minimum: 10+</p>
-            <a class="reserve-button" href="/checkout?name=Intimidator+305">Réserver</a>
+            <a class="reserve-button" href="/checkout?name=Intimidator+305&stripeid=intimidator">Réserver</a>
         </div>
     </div>
 

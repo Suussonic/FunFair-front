@@ -7,6 +7,7 @@
     <link rel="shortcut icon" href="ASSET/CARDBINDEX V5.png" type="image/x-icon">
     <title>Erreur 404 - Page non trouvée</title>
     <link rel="stylesheet" href="/public/assets/css/errors/404.css">
+    <link rel="shortcut icon" href="/public/assets/images/logo.png" type="image/x-icon">
 </head>
 
 <body>
