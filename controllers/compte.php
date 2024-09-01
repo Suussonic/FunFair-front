@@ -1,44 +1,37 @@
-<?php
-global $dbh;
-session_start();
-include_once('models/Database.php');
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon compte</title>
+</head>
+<body>
+    <h1>Modifier les informations de votre compte</h1>
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $editUserSql = '
-        UPDATE users
-        SET firstname = :firstname,
-            lastname = :lastname,
-            email = :email,
-            gender = :gender
-        WHERE id = :id
-    ';
-
-    $preparedEditUser = $dbh->prepare($editUserSql);
-    $preparedEditUser->execute([
-        'firstname' => $_POST['firstname'],
-        'lastname' => $_POST['lastname'],
-        'email' => $_POST['email'],
-        'gender' => $_POST['gender'],
-        'id' => $_SESSION['userId']
-    ]);
-
-    // Update session variables after successful update
-    $_SESSION['firstname'] = $_POST['firstname'];
-    $_SESSION['lastname'] = $_POST['lastname'];
-    $_SESSION['email'] = $_POST['email'];
-    $_SESSION['gender'] = $_POST['gender'];
-}
-
-// Retrieve current user data
-$getUser = "SELECT id, firstname, lastname, email, gender FROM users WHERE id = :id";
-
-$preparedGetUser = $dbh->prepare($getUser);
-$preparedGetUser->execute([
-    'id' => $_SESSION['userId']
-]);
-
-$user = $preparedGetUser->fetch(PDO::FETCH_ASSOC);
-
-// Include the view that displays the user account information
-require 'views/compte.view.php';
-?>
+    <form action="" method="POST">
+        <div>
+            <label for="firstname">Prénom:</label>
+            <input type="text" id="firstname" name="firstname" value="<?php echo htmlspecialchars($_SESSION['firstname'], ENT_QUOTES); ?>" required>
+        </div>
+        <div>
+            <label for="lastname">Nom:</label>
+            <input type="text" id="lastname" name="lastname" value="<?php echo htmlspecialchars($_SESSION['lastname'], ENT_QUOTES); ?>" required>
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($_SESSION['email'], ENT_QUOTES); ?>" required>
+        </div>
+        <div>
+            <label for="gender">Genre:</label>
+            <select id="gender" name="gender" required>
+                <option value="male" <?php echo $_SESSION['gender'] === 'male' ? 'selected' : ''; ?>>Homme</option>
+                <option value="female" <?php echo $_SESSION['gender'] === 'female' ? 'selected' : ''; ?>>Femme</option>
+                <option value="other" <?php echo $_SESSION['gender'] === 'other' ? 'selected' : ''; ?>>Autre</option>
+            </select>
+        </div>
+        <div>
+            <button type="submit">Mettre à jour</button>
+        </div>
+    </form>
+</body>
+</html>
