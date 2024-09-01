@@ -23,16 +23,16 @@
         $attraction = getAttractionIdByStripeId($idstripe);
         $total = ($unitprice * $quantity)/100;
         try{
-                    $query = $dbh -> prepare("INSERT INTO reservations (id, attractionid, montant, quantity, jour, heure, email) VALUES(:id, :attraction, :montant, :quantity, :jour, :heure, :email)");
-        $query -> bindParam(':id', $rowid);
-        $query -> bindParam(':attraction',$attraction);
-        $query -> bindParam(':montant', $total);
-        $query -> bindParam(':quantity', $quantity);
-        $query -> bindParam(':jour', $date);
-        $query -> bindParam(':heure', $heure);
-        $query -> bindParam(':email', $email);
-        $query -> execute();
-        }catch(PDOException $e){
+            $query = $dbh -> prepare("INSERT INTO reservations (id, attractionid, montant, quantity, jour, heure, email) VALUES(:id, :attraction, :montant, :quantity, :jour, :heure, :email)");
+            $query -> bindParam(':id', $rowid);
+            $query -> bindParam(':attraction',$attraction);
+            $query -> bindParam(':montant', $total);
+            $query -> bindParam(':quantity', $quantity);
+            $query -> bindParam(':jour', $date);
+            $query -> bindParam(':heure', $heure);
+            $query -> bindParam(':email', $email);
+            $query -> execute();
+        }catch(Exception $e){
             var_dump($e);
         }
 
