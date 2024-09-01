@@ -19,17 +19,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'lastname' => $_POST['lastname'],
         'email' => $_POST['email'],
         'gender' => $_POST['gender'],
-        'id' => $_SESSION['userId']  // Assurez-vous que la variable de session 'userId' est bien définie
+        'id' => $_SESSION['userId']
     ]);
 
-    // Mettre à jour les variables de session après la mise à jour réussie
+    // Update session variables after successful update
     $_SESSION['firstname'] = $_POST['firstname'];
     $_SESSION['lastname'] = $_POST['lastname'];
-    $_SESSION['email'] = $_POST['email']; // Ajout si nécessaire
-    $_SESSION['gender'] = $_POST['gender']; // Ajout si nécessaire
+    $_SESSION['email'] = $_POST['email'];
+    $_SESSION['gender'] = $_POST['gender'];
 }
 
-// Récupérer les données actuelles de l'utilisateur
+// Retrieve current user data
 $getUser = "SELECT id, firstname, lastname, email, gender FROM users WHERE id = :id";
 
 $preparedGetUser = $dbh->prepare($getUser);
@@ -39,7 +39,6 @@ $preparedGetUser->execute([
 
 $user = $preparedGetUser->fetch(PDO::FETCH_ASSOC);
 
-// Inclure la vue qui affiche les informations du compte utilisateur
+// Include the view that displays the user account information
 require 'views/compte.view.php';
-
 ?>
