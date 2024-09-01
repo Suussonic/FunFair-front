@@ -3,10 +3,15 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+require 'views/avis.view.php';
 
 // Inclure le fichier de configuration de la base de données et démarrer la session si elle n'est pas déjà démarrée
 include 'models/Database.php';
+session_start();
 
+// Inclure le fichier de configuration de la base de données et démarrer la session
+include 'models/Database.php';
+session_start();
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
@@ -23,7 +28,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = htmlspecialchars($_POST['email']);
     $note = htmlspecialchars($_POST['rating']);
     $contenu = htmlspecialchars($_POST['message']);
-
     // Préparer la requête d'insertion
     $requete = "INSERT INTO Avis (nom, email, note, contenu) VALUES (?, ?, ?, ?)";
     
@@ -40,14 +44,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $message = "Erreur de préparation de la requête.";
     }
 }
-
 // Récupérer tous les avis existants
 $requete = "SELECT nom, note, contenu, created_at FROM Avis ORDER BY created_at DESC";
 $resultat = $connexion->query($requete);
-
 // Inclure la vue pour afficher les avis et le formulaire
 require 'views/avis.view.php';
-
 // Fermeture de la connexion à la base de données
 $connexion->close();
 ?>
