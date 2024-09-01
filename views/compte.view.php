@@ -2,11 +2,6 @@
 session_start();
 global $dbh;
 
-// Vérifier si l'utilisateur est connecté et a un ID défini dans la session
-if (!isset($_SESSION['userId'])) {
-    die("Vous devez être connecté pour accéder à cette page.");
-}
-
 // Inclure le fichier de connexion à la base de données
 include_once('models/Database.php');
 
