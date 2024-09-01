@@ -38,6 +38,12 @@
             <p class="age-requirement">Âge minimum: 10+</p>
             <a class="reserve-button" href="/checkout?name=Intimidator+305&stripeid=intimidator">Réserver</a>
         </div>
+         <div class="attraction-item" data-age="15">
+            <h2>Le Train Fantôme</h2>
+            <p>Entrez dans l'univers du frisson avec ce parcours hanté pour les plus courageux.</p>
+            <p class="age-requirement">Âge minimum: 15+</p>
+            <a class="reserve-button" href="/checkout?name=Le+Train+Fantôme&stripeid=letrainfantome">Réserver</a>
+        </div>
     </div>
 
     <div class="back-to-home">
