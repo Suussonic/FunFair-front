@@ -40,9 +40,9 @@
             echo "<input type='hidden' name='action' value='" . ($has_liked ? 'unlike' : 'like') . "'>";
             echo "<button type='submit' style='border: none; background: none;'>";
             if ($has_liked) {
-                echo "<img src='like.png' alt='Un-like' style='width: 64px; cursor: pointer;'>";
+                echo "<img src='/public/assets/images/like.png' alt='Un-like' style='width: 64px; cursor: pointer;'>";
             } else {
-                echo "<img src='unlike.png' alt='Like' style='width: 64px; cursor: pointer;'>";
+                echo "<img src='/public/assets/images/unlike.png' alt='Like' style='width: 64px; cursor: pointer;'>";
             }
             echo "</button>";
             echo "</form>";
