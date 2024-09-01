@@ -38,7 +38,6 @@
 
     function getAttractionIdByStripeId($stripeid): int 
     {
-        kill("salut c'est jean pierre");
         global $dbh;
         $query = $dbh -> prepare("SELECT id FROM attractions where idstripe = :idstripe");
         $query -> bindParam(':idstripe', $stripeid);
@@ -49,7 +48,6 @@
 
     function sendreservation($id): void
     {
-        kill("salut c'est jean pierre");
     //construire le pdf avec fpdf ou un truc du genre 
     //envoiyer par mail
     //ou telecharger
