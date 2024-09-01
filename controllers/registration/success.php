@@ -20,9 +20,7 @@
         
         $result = $query->fetch(PDO::FETCH_ASSOC);
         $rowid = $result["total"] + 1;
-        var_dump($rowid);
         $attraction = getAttractionIdByStripeId($idstripe);
-        var_dump($rowid);
         $total = ($unitprice * $quantity)/100;
         $query = $dbh -> prepare("INSERT INTO reservations (id, attractionid, montant, quantity, jour, heure, email) VALUES(:id, :attraction, :montant, :quantity, :jour, :heure, :email)");
         $query -> bindParam(':id', $rowid);
