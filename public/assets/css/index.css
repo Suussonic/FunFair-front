@@ -77,6 +77,23 @@ nav a:hover {
   color: #ffa07a;
 }
 
+link {
+  margin-top: 20px;
+}
+
+link a {
+  color: #ff6f61;
+  text-decoration: none;
+  font-size: 1.2em;
+  margin: 0 15px;
+  transition: color 0.3s;
+}
+
+link a:hover {
+  color: #ffa07a;
+}
+
+
 .cta-button {
   display: inline-block;
   margin-top: 20px;

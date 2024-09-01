@@ -14,8 +14,13 @@
     <header>
         <?php include 'partials/nav.php'; ?>
     </header>
+    <div>
+        <h1>Bienvenue à Fun Fair</h1>
+        <p>Le parc d'attractions où le plaisir ne s'arrête jamais !</p>
+    </div>
+
     <h3>Liens rapides</h3>
-            <ul>
+            <ul id="link">
                 <li><a href="/attractions">Attractions</a></li>
                 <li><a href="/horaire">Horaires</a></li>
                 <li><a href="/billets">Billets</a></li>
@@ -23,10 +28,7 @@
                 <li><a href="/avis">Laissez un Avis</a></li>
                 <li><a href="/contact">Contact</a></li>
             </ul>
-    <div>
-        <h1>Bienvenue à Fun Fair</h1>
-        <p>Le parc d'attractions où le plaisir ne s'arrête jamais !</p>
-    </div>
+
     <a href="/attractions" class="cta-button">Découvrez nos attractions</a>
     <?php include 'partials/footer.php'; ?>
 </body>
