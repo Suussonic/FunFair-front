@@ -29,7 +29,8 @@ label {
 
 input[type="email"] {
   width: 100%;
-  padding: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   margin-bottom: 20px;
   border: none;
   border-radius: 4px;
