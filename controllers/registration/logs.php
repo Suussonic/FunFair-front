@@ -1,5 +1,5 @@
 <?php
-include('Database.php');
+include_once('models/Database.php');
 
 function insert_logs($action) {
     if (session_status() == PHP_SESSION_NONE) {
