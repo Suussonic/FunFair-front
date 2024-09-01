@@ -2,7 +2,7 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-include '../Database.php';  // Adjust the path as necessary
+include 'models/Database.php';  // Adjust the path as necessary
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
