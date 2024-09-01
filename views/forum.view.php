@@ -26,7 +26,7 @@
                 <p>Les montagnes russes sont vraiment géniales, mais un peu trop rapides pour moi.</p>
                 <span class="timestamp">Posté le 16 août 2024 à 11:15</span>
             </div>
-            <!--  si on veux on se basse comme le truc en haut c'est un exemple juste pour donner plus de truc au cite -->
+          
         </section>
 
         <section class="new-message">
