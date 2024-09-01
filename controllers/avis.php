@@ -5,11 +5,10 @@ error_reporting(E_ALL);
 
 // Start session only if it's not already started
 if (session_status() === PHP_SESSION_NONE) {
-    session_start();
 }
 
-// Include the database configuration file
 include 'models/Database.php';
+session_start();
 
 // Check if the database connection is established
 if (!isset($connexion)) {
