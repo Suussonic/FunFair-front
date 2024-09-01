@@ -18,7 +18,7 @@
             <ul>
                 <li><a href="/">Accueil</a></li>
                 <li><a href="/attractions">Attractions</a></li>
-                <li><a href="/horaires">Horaires</a></li>
+                <li><a href="/horaire">Horaires</a></li>
                 <li><a href="/billets">Billets</a></li>
                 <li><a href="/avis">Laissez un Avis</a></li>
                 <li><a href="/contact">Contact</a></li>
