@@ -46,12 +46,10 @@
 
     function sendreservation($id): void
     {
-    //construire le pdf avec fpdf ou un truc du genre 
-    //envoiyer par mail
-    //ou telecharger
+  
     global $dbh;
 
-    // Récupérer les détails de la réservation en fonction de l'ID
+   
     $query = $dbh->prepare("SELECT r.*, a.nom as attraction_name FROM reservations r JOIN attractions a ON r.attractionid = a.id WHERE r.id = :id");
     $query->bindParam(':id', $id);
     $query->execute();
@@ -61,10 +59,10 @@
         die("Réservation introuvable.");
     }
 
-    // Inclusion de FPDF
+   
     require('../../fpdf186/fpdf.php');
 
-    // Création du PDF
+  
     $pdf = new FPDF();
     $pdf->AddPage();
     $pdf->SetFont('Arial', 'B', 14);
@@ -91,9 +89,9 @@
     $pdf->Cell(150, 6, $reservation['email'], 1);
     $pdf->Ln();
 
-    // Forcer le téléchargement du PDF
+    
     $pdf->Output('D', 'reservation_' . $reservation['email'] . '_' . $reservation['jour'] . '.pdf');
-    //ou les deux
+    
     }
 ?>
 <!DOCTYPE html>
