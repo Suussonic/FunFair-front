@@ -47,7 +47,7 @@
         <div class="attraction-item" data-age="8">
             <h2>Les Autos Tamponneuses</h2>
             <p>Amusez-vous à heurter vos amis en toute sécurité dans nos voitures colorées.</p>
-            <p class="age-requirement">Âge minimum: 8+</p>
+            <p class="age-requirement">Âge minimum: 5+</p>
             <a class="reserve-button" href="/checkout?name=Les+Autos+Tamponneuses&stripeid=autostamponneuses">Réserver</a>
         </div>
         <div class="attraction-item" data-age="12">
