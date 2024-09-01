@@ -2,22 +2,22 @@
 include 'models/Database.php';
 session_start();
 
-// Vérifier si le formulaire a été soumis
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Récupérer et valider les données du formulaire
+  
     $title = trim($_POST['title']);
     $description = trim($_POST['description']);
     $content = trim($_POST['content']);
     $id_author = $_SESSION['id'];
     $name_author = $_SESSION['firstname'];
 
-    // Vérification que les champs ne sont pas vides
+  
     if (!empty($title) && !empty($description) && !empty($content)) {
         try {
-            // Préparer la requête d'insertion
+          
             $stmt = $dbh->prepare("INSERT INTO question (title, description, content, id_author, name_author) VALUES (:title, :description, :content, :id_author, :name_author)");
 
-            // Exécuter la requête avec les paramètres
+          
             $stmt->execute([
                 ':title' => $title,
                 ':description' => $description,
@@ -26,11 +26,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 ':name_author' => $name_author
             ]);
 
-            // Redirection vers le forum après insertion réussie
+        
             header("Location: /forum");
             exit;
         } catch (PDOException $e) {
-            // Gestion des erreurs SQL
+        
             echo "Erreur lors de l'insertion dans la base de données : " . htmlspecialchars($e->getMessage());
         }
     } else {
