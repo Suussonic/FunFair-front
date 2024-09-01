@@ -1,8 +1,12 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 require 'views/avis.view.php';
 <?php
 // Inclure la base de données et démarrer la session
-include 'config/Database.php';
+include 'models/Database.php';
 session_start();
 
 // Création de la connexion à la base de données
