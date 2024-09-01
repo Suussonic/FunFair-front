@@ -3,49 +3,47 @@ body {
     color: #ffffff;
     font-family: Arial, sans-serif;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
     height: 100vh;
     margin: 0;
-    text-align: center;
-  }
-  
-  .container {
-    width: 100%;
-    max-width: 600px;
     padding: 20px;
-    border-radius: 10px;
-    background-color: #383b42;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: left; /* Align text to the left */
+    text-align: center;
   }
   
   h1 {
     font-size: 2.5em;
     color: #ff6f61;
     margin-bottom: 20px;
-    text-align: center; /* Center the heading */
   }
   
   form {
+    background-color: #383b42;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 500px;
     display: flex;
     flex-direction: column;
-    gap: 15px;
   }
   
-  input[type="text"], textarea {
+  input[type="text"],
+  textarea {
     width: 100%;
-    padding: 10px;
-    border: none;
+    padding: 15px;
+    margin-bottom: 15px;
     border-radius: 5px;
+    border: none;
     background-color: #2f3136;
     color: #ffffff;
     font-size: 1em;
   }
   
-  input[type="text"]::placeholder,
-  textarea::placeholder {
-    color: #7c7f85;
+  textarea {
+    height: 100px;
+    resize: vertical;
   }
   
   button {
@@ -57,7 +55,6 @@ body {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-    align-self: center; /* Center the button */
   }
   
   button:hover {
@@ -65,18 +62,27 @@ body {
   }
   
   a {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 1em;
-    color: #ffffff;
-    background-color: #ff6f61;
+    color: #ff6f61;
     text-decoration: none;
-    border-radius: 5px;
-    align-self: center; /* Center the link */
+    margin-top: 20px;
+    display: inline-block;
   }
   
   a:hover {
-    background-color: #ff5a4a;
+    color: #ff5a4a;
+  }
+  
+  @media (max-width: 600px) {
+    form {
+      padding: 15px;
+    }
+  
+    h1 {
+      font-size: 2em;
+    }
+  
+    button {
+      font-size: 1em;
+    }
   }
   
