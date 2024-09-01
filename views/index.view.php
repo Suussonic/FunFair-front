@@ -21,7 +21,6 @@
 
     <h3></h3>
             <nav class=".nav-bar">
-                <a href="/attractions">Attractions</a>
                 <a href="/horaire">Horaires</a>
                 <a href="/billets">Billets</a>
                 <a href="/forum">Forum</a>
