@@ -2,7 +2,7 @@
 error_reporting(E_ALL); 
 ini_set("display_errors", 1);
 include_once('models/Database.php');
-include('logs.php');
+// include('logs.php');
 
 $errorInfo = false;
 
@@ -38,7 +38,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
         $_SESSION['lastname'] = $user['lastname'];
         $_SESSION['user'] = $user;
 
-        insert_logs('connexion');
+        // insert_logs('connexion');
         header('location:/'); // Rediriger vers la page d'accueil
         exit;
     } else {
