@@ -19,7 +19,7 @@
         <p>Le parc d'attractions où le plaisir ne s'arrête jamais !</p>
     </div>
 
-    <h3>Liens rapides</h3>
+    <h3></h3>
             <nav class=".nav-bar">
                 <a href="/attractions">Attractions</a>
                 <a href="/horaire">Horaires</a>
