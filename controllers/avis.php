@@ -5,7 +5,7 @@ error_reporting(E_ALL);
 
 
 // Inclure le fichier de configuration de la base de données et démarrer la session si elle n'est pas déjà démarrée
-include 'models/Database.php';
+include 'Database.php'
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
