@@ -17,7 +17,7 @@ $questions = $stmt->fetchAll();
 
 <h1>Forum</h1>
 
-<a href="new_question.php">Poser une nouvelle question</a>
+<a href="/question">Poser une nouvelle question</a>
 
 <h2>Questions existantes</h2>
 <ul>
