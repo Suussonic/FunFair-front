@@ -14,7 +14,7 @@ function sendMail($email, $objet, $body) {
                         $mail = new PHPMailer (true);
                         $mail = initMailer($mail);
                         // Expéditeur
-                        $mail->setFrom('noreplycardbindex@gmail.com', 'No reply - Fun Fair');
+                        $mail->setFrom('funfair-no-reply@echovps.fr', 'No reply - Fun Fair'); 
                         // Destinataire dont le nom peut également être indiqué en option
                         $mail->addAddress($email, $username);
                 
@@ -36,11 +36,11 @@ function sendMail($email, $objet, $body) {
 
 function initMailer($mail) {
     $mail->isSMTP();
-    $mail->Host = 'smtp.gmail.com'; // Your SMTP server
+    $mail->Host = 'live.smtp.mailtrap.io'; // Your SMTP server
     $mail->SMTPAuth = true;
-    $mail->Username = 'noreplycardbindex@gmail.com'; // Your Mailtrap username
-    $mail->Password = 'vtlwswtcphagplaw'; // Your Mailtrap password
-    $mail->Port = 465;
+    $mail->Username = 'api'; // Your Mailtrap username
+    $mail->Password = '5e1169d1cf99606bbbb2480f5177958f'; // Your Mailtrap password
+    $mail->Port = 587;
     return $mail;
 }
 ?>
