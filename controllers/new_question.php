@@ -2,18 +2,46 @@
 include 'models/Database.php';
 session_start();
 
+// Vérifier si l'utilisateur est connecté
+if (!isset($_SESSION['user_id']) || !isset($_SESSION['username'])) {
+    header("Location: /login"); // Redirige vers la page de connexion si non connecté
+    exit;
+}
+
+// Vérifier si le formulaire a été soumis
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $title = $_POST['title'];
-    $description = $_POST['description'];
-    $content = $_POST['content'];
+    // Récupérer et valider les données du formulaire
+    $title = trim($_POST['title']);
+    $description = trim($_POST['description']);
+    $content = trim($_POST['content']);
     $id_author = $_SESSION['user_id'];
     $name_author = $_SESSION['username'];
 
-    $stmt = $dbh->prepare("INSERT INTO forum (title, description, content, id_author, name_author) VALUES (?, ?, ?, ?, ?)");
-    $stmt->execute([$title, $description, $content, $id_author, $name_author]);
+    // Vérification que les champs ne sont pas vides
+    if (!empty($title) && !empty($description) && !empty($content)) {
+        try {
+            // Préparer la requête d'insertion
+            $stmt = $dbh->prepare("INSERT INTO forum (title, description, content, id_author, name_author) VALUES (:title, :description, :content, :id_author, :name_author)");
 
-    header("Location: /forum");
-    exit;
+            // Exécuter la requête avec les paramètres
+            $stmt->execute([
+                ':title' => $title,
+                ':description' => $description,
+                ':content' => $content,
+                ':id_author' => $id_author,
+                ':name_author' => $name_author
+            ]);
+
+            // Redirection vers le forum après insertion réussie
+            header("Location: /forum");
+            exit;
+        } catch (PDOException $e) {
+            // Gestion des erreurs SQL
+            echo "Erreur lors de l'insertion dans la base de données : " . htmlspecialchars($e->getMessage());
+        }
+    } else {
+        echo "Veuillez remplir tous les champs.";
+    }
 }
 ?>
 
@@ -29,9 +57,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <h1>Poser une nouvelle question</h1>
 
 <form method="post">
-    <input type="text" name="title" placeholder="Titre de la question" required>
-    <textarea name="description" placeholder="Description courte" required></textarea>
-    <textarea name="content" placeholder="Contenu détaillé" required></textarea>
+    <input type="text" name="title" placeholder="Titre de la question" value="<?php echo isset($title) ? htmlspecialchars($title) : ''; ?>" required>
+    <textarea name="description" placeholder="Description courte" required><?php echo isset($description) ? htmlspecialchars($description) : ''; ?></textarea>
+    <textarea name="content" placeholder="Contenu détaillé" required><?php echo isset($content) ? htmlspecialchars($content) : ''; ?></textarea>
     <button type="submit">Envoyer</button>
 </form>
 
