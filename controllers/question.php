@@ -1,121 +1,56 @@
-body {
-  background-color: #26272c;
-  color: #ffffff;
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+<?php
+include 'models/Database.php';
+session_start();
+
+$question_id = $_GET['id'];
+$stmt = $dbh->prepare("SELECT * FROM forum WHERE id = ?");
+$stmt->execute([$question_id]);
+$question = $stmt->fetch();
+
+if (!$question) {
+    die("Question non trouvée.");
 }
 
-h1, h2 {
-  color: #ff6f61;
-  margin-bottom: 20px;
-}
+$stmt_responses = $dbh->prepare("SELECT * FROM responses WHERE question_id = ? ORDER BY id DESC");
+$stmt_responses->execute([$question_id]);
+$responses = $stmt_responses->fetchAll();
+?>
 
-.container {
-  max-width: 800px;
-  width: 100%;
-  padding: 20px;
-  background-color: #383b42;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  margin-bottom: 20px;
-  text-align: left;
-}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?= htmlspecialchars($question['title']) ?></title>
+</head>
+<body>
 
-h1 {
-  font-size: 2.5em;
-  margin-bottom: 10px;
-}
+<h1><?= htmlspecialchars($question['title']) ?></h1>
+<p><?= htmlspecialchars($question['description']) ?></p>
+<p><?= htmlspecialchars($question['content']) ?></p>
+<p><small>Posté par <?= htmlspecialchars($question['name_author']) ?> le <?= $question['date_publication'] ?></small></p>
 
-p {
-  font-size: 1.2em;
-  line-height: 1.6;
-  margin-bottom: 20px;
-}
+<h2>Réponses</h2>
+<ul>
+    <?php foreach ($responses as $response): ?>
+        <li><?= htmlspecialchars($response['content']) ?><br>
+            <small>Posté par <?= htmlspecialchars($response['name_author']) ?> le <?= $response['date_publication'] ?></small>
+        </li>
+    <?php endforeach; ?>
+</ul>
 
-small {
-  color: #7c7f85;
-}
+<?php if (isset($_SESSION['user_id'])): ?>
+    <h2>Répondre à la question</h2>
+    <form method="post" action="respond.php">
+        <textarea name="content" placeholder="Votre réponse" required></textarea>
+        <input type="hidden" name="question_id" value="<?= $question_id ?>">
+        <button type="submit">Envoyer</button>
+    </form>
+<?php else: ?>
+    <p><a href="login.php">Connectez-vous</a> pour répondre.</p>
+<?php endif; ?>
 
-ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
+<a href="forum.php">Retour au forum</a>
 
-li {
-  background-color: #2f3136;
-  padding: 15px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  text-align: left;
-}
-
-li small {
-  display: block;
-  margin-top: 10px;
-  color: #7c7f85;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  margin-top: 20px;
-}
-
-textarea {
-  width: 100%;
-  padding: 15px;
-  border-radius: 5px;
-  background-color: #2f3136;
-  border: none;
-  color: #ffffff;
-  font-size: 1em;
-  height: 100px;
-}
-
-button {
-  padding: 10px 20px;
-  font-size: 1.2em;
-  color: #ffffff;
-  background-color: #ff6f61;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  align-self: flex-start;
-}
-
-button:hover {
-  background-color: #ff5a4a;
-}
-
-a {
-  color: #ff6f61;
-  text-decoration: none;
-  margin-top: 20px;
-}
-
-a:hover {
-  color: #ff5a4a;
-}
-
-@media (max-width: 600px) {
-  .container {
-    padding: 15px;
-  }
-
-  h1 {
-    font-size: 2em;
-  }
-
-  button {
-    font-size: 1em;
-  }
-}
+</body>
+</html>
