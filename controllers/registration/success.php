@@ -17,22 +17,25 @@
         
         $query = $dbh->prepare("SELECT count(id) as total FROM reservations");
         $query->execute();
-       
+        
         $result = $query->fetch(PDO::FETCH_ASSOC);
         $rowid = $result["total"] + 1;
-        
         $attraction = getAttractionIdByStripeId($idstripe);
         $total = ($unitprice * $quantity)/100;
-        $query = $dbh -> prepare("INSERT INTO reservations (id, attractionid, montant, quantity, jour, heure, email) VALUES(:id, :attraction,:montant, :quantity, :jour, :heure, :email)");
-        $query -> bindParam(':id', $rowid);
-        $query -> bindParam(':attraction',$attraction);
-        $query -> bindParam(':montant', $total);
-        $query -> bindParam(':quantity', $quantity);
-        $query -> bindParam(':jour', $date);
-        $query -> bindParam(':heure', $heure);
-        $query -> bindParam(':email', $email);
-        $query -> execute();
-        header("Location: ../index-home.php");
+        try{
+            $query = $dbh -> prepare("INSERT INTO reservations (id, attractionid, montant, quantity, jour, heure, email) VALUES(:id, :attraction, :montant, :quantity, :jour, :heure, :email)");
+            $query -> bindParam(':id', $rowid);
+            $query -> bindParam(':attraction',$attraction);
+            $query -> bindParam(':montant', $total);
+            $query -> bindParam(':quantity', $quantity);
+            $query -> bindParam(':jour', $date);
+            $query -> bindParam(':heure', $heure);
+            $query -> bindParam(':email', $email);
+            $query -> execute();
+        }catch(Exception $e){
+            var_dump($e);
+        }
+
         return $rowid;
     }
 
