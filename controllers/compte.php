@@ -44,18 +44,6 @@ $user = $preparedGetUser->fetch();
     <title>Mon compte</title>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="../register/form.php">Créer compte</a></li>
-                <li><a href="../login/loginForm.php">Login</a></li>
-                <li><a href="../account/account.php">Mon compte</a></li>
-                <li><a href="../logout.php">Se deconnecter</a></li>
-            </ul>
-
-        </nav>
-    </header>
-
     <h1>Bienvenue <?php echo $_SESSION['firstname'] . ' ' . $_SESSION['lastname'] ?></h1>
 
     <form action="" method="POST">
