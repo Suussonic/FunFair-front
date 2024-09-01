@@ -17,20 +17,21 @@ body {
     border-radius: 10px;
     background-color: #383b42;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: left; /* Align text to the left */
+    text-align: left; /* Assure que le texte du formulaire est aligné à gauche */
   }
   
   h1 {
     font-size: 2.5em;
     color: #ff6f61;
     margin-bottom: 20px;
-    text-align: center; /* Center the heading */
+    text-align: center; /* Centre le titre */
   }
   
   form {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    align-items: stretch; /* Assure que les éléments du formulaire prennent toute la largeur */
   }
   
   input[type="text"], textarea {
@@ -57,7 +58,8 @@ body {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-    align-self: center; /* Center the button */
+    width: 100%;
+    align-self: center; /* Centre le bouton */
   }
   
   button:hover {
@@ -73,10 +75,24 @@ body {
     background-color: #ff6f61;
     text-decoration: none;
     border-radius: 5px;
-    align-self: center; /* Center the link */
+    align-self: center; /* Centre le lien */
   }
   
   a:hover {
     background-color: #ff5a4a;
+  }
+  
+  @media (max-width: 600px) {
+    .container {
+      padding: 15px;
+    }
+  
+    h1 {
+      font-size: 2em;
+    }
+  
+    button, a {
+      font-size: 1em;
+    }
   }
   
