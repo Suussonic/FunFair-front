@@ -25,8 +25,8 @@
         var_dump($attraction);
         var_dump($total);
         var_dump($date);
-        var_dump($heure);*/
-        var_dump($email);
+        var_dump($heure);
+        var_dump($email);*/
         var_dump($rowid);
         $total = ($unitprice * $quantity)/100;
 
