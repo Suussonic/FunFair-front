@@ -1,5 +1,7 @@
 <?php
 require 'views/avis.view.php';
+session_start();
+include 'Database.php';
     // Création de la connexion
     $connexion = new mysqli($serveur, $utilisateur, $motdepasse, $basededonnees);
 
