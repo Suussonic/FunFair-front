@@ -1,8 +1,15 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 require 'views/avis.view.php';
+<<<<<<< HEAD
+?>
+=======
 <?php
 // Inclure la base de données et démarrer la session
-include 'config/Database.php';
+include 'models/Database.php';
 session_start();
 
 // Création de la connexion à la base de données
@@ -41,3 +48,4 @@ require 'views/avis.view.php';
 // Fermeture de la connexion à la base de données
 $connexion->close();
 ?>
+>>>>>>> 84f1dcc54aeeff11a09705f0bee927f92952a16d

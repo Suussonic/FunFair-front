@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Mon compte</title>
-    <link rel="stylesheet" href="/public/assets/css/compte.css">
 </head>
 <body>
 
-    <h1>Bienvenue <?php echo htmlspecialchars($_SESSION['firstname'])?></h1>
+    <h1>Bienvenue <?php echo htmlspecialchars($_SESSION['firstname']) . ' ' . htmlspecialchars($_SESSION['lastname']); ?></h1>
 
     <form action="" method="POST">
         <!-- PRENOM -->
