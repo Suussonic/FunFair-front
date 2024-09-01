@@ -11,17 +11,20 @@ body {
   }
   
   .container {
+    width: 100%;
     max-width: 600px;
     padding: 20px;
     border-radius: 10px;
     background-color: #383b42;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: left; /* Align text to the left */
   }
   
   h1 {
     font-size: 2.5em;
     color: #ff6f61;
     margin-bottom: 20px;
+    text-align: center; /* Center the heading */
   }
   
   form {
@@ -54,6 +57,7 @@ body {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
+    align-self: center; /* Center the button */
   }
   
   button:hover {
@@ -69,10 +73,10 @@ body {
     background-color: #ff6f61;
     text-decoration: none;
     border-radius: 5px;
+    align-self: center; /* Center the link */
   }
   
   a:hover {
     background-color: #ff5a4a;
   }
-  
   
