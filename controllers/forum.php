@@ -33,5 +33,8 @@ $questions = $stmt->fetchAll();
     <?php endforeach; ?>
 </ul>
 
+    <div class="back-to-home">
+        <a href="/">Retour à l'accueil</a>
+    </div>
 </body>
 </html>
