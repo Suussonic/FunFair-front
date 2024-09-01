@@ -14,7 +14,6 @@
         <h1>Merci !</h1>
         <p>Nous apprécions votre confiance et espérons que vous apprécierez votre achat.</p>
         <a href="/" class="btn">Retour à l'accueil</a>
-        <img src="/public/assets/images/success.png" alt="Success Image">
     </div>
 </body>
 
