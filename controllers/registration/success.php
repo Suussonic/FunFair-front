@@ -23,12 +23,12 @@
         
         $attraction = getAttractionIdByStripeId($idstripe);
         $total = ($unitprice * $quantity)/100;
-        $query = $dbh -> prepare("INSERT INTO reservations (id, attractionid, montant, quantity, date, heure, email) VALUES(:id, :attraction,:montant, :quantity, :date, :heure, :email)");
+        $query = $dbh -> prepare("INSERT INTO reservations (id, attractionid, montant, quantity, jour, heure, email) VALUES(:id, :attraction,:montant, :quantity, :jour, :heure, :email)");
         $query -> bindParam(':id', $rowid);
         $query -> bindParam(':attraction',$attraction);
         $query -> bindParam(':montant', $total);
         $query -> bindParam(':quantity', $quantity);
-        $query -> bindParam(':date', $date);
+        $query -> bindParam(':jour', $date);
         $query -> bindParam(':heure', $heure);
         $query -> bindParam(':email', $email);
         $query -> execute();
