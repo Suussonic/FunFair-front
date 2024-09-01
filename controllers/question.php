@@ -39,7 +39,7 @@ $responses = $stmt_responses->fetchAll();
     <?php endforeach; ?>
 </ul>
 
-<?php if (isset($_SESSION['user_id'])): ?>
+<?php if (isset($_SESSION['userId'])): ?>
     <h2>Répondre à la question</h2>
     <form method="post" action="respond.php">
         <textarea name="content" placeholder="Votre réponse" required></textarea>
