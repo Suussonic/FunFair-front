@@ -8,7 +8,7 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 // Inclure le fichier de configuration de la base de données
-include 'models/Database.php';
+
 
 // Check if the database connection is established
 if (!isset($connexion)) {
