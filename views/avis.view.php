@@ -8,11 +8,15 @@
     <link rel="stylesheet" href="/public/assets/css/avis.css">
     <link rel="shortcut icon" href="/public/assets/images/logo.png" type="image/x-icon">
 </head>
-    
+
 <body>
     <h1>Laissez un Avis</h1>
 
-    <form action="#" method="POST">
+    <?php if (isset($message)): ?>
+        <p class="message"><?= htmlspecialchars($message) ?></p>
+    <?php endif; ?>
+
+    <form action="/controllers/registration/avis.php" method="POST">
         <label for="name">Nom :</label>
         <input type="text" id="name" name="name" required>
 
@@ -37,6 +41,21 @@
     <div class="back-to-home">
         <a href="/">Retour à l'accueil</a>
     </div>
+
+    <h2>Avis des autres visiteurs</h2>
+    <div class="reviews">
+        <?php if ($resultat->num_rows > 0): ?>
+            <?php while($row = $resultat->fetch_assoc()): ?>
+                <div class="review">
+                    <p><strong><?= htmlspecialchars($row['nom']) ?></strong> (<?= htmlspecialchars($row['note']) ?>/5)</p>
+                    <p><?= nl2br(htmlspecialchars($row['contenu'])) ?></p>
+                    <p class="date"><?= date('d/m/Y H:i', strtotime($row['created_at'])) ?></p>
+                </div>
+            <?php endwhile; ?>
+        <?php else: ?>
+            <p>Aucun avis pour le moment. Soyez le premier à laisser un avis !</p>
+        <?php endif; ?>
+    </div>
 </body>
-     <?php include 'partials/footer.php'; ?>
+<?php include 'partials/footer.php'; ?>
 </html>
