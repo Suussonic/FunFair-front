@@ -17,6 +17,7 @@
         
         $query = $dbh->prepare("SELECT count(id) as total FROM reservations");
         $query->execute();
+        header("Location: ../index-home.php");
         $result = $query->fetch(PDO::FETCH_ASSOC);
         $rowid = $result["total"] + 1;
         $attraction = getAttractionIdByStripeId($idstripe);
@@ -30,7 +31,7 @@
         $query -> bindParam(':heure', $heure);
         $query -> bindParam(':email', $email);
         $query -> execute();
-        header("Location: ../index-home.php");
+        
         return $rowid;
     }
 
