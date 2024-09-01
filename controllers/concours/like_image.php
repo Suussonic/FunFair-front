@@ -1,9 +1,9 @@
 <?php
 require_once('../../models/Database.php');
-
+session_start();
 if (!isset($_SESSION['id'])) {
-    die("Vous devez être connecté pour liker ou un-liker une image.");
     header('Location: https://funfair.ovh/login');
+    exit();
 }
 
 $user_id = $_SESSION['id'];
@@ -18,8 +18,8 @@ if ($image_id > 0) {
         $stmt->execute();
 
         if ($stmt->fetchColumn() > 0) {
-            die("Vous avez déjà liké cette image.");
             header('Location: https://funfair.ovh/concours');
+            exit();
         }
 
         $stmt = $dbh->prepare("INSERT INTO likes (user_id, image_id) VALUES (:user_id, :image_id)");
@@ -35,7 +35,7 @@ if ($image_id > 0) {
             exit();
         } else {
             header('Location: https://funfair.ovh/concours');
-            echo "Erreur lors du like de l'image.";
+            exit();
         }
     } elseif ($action === 'unlike') {
         $stmt = $dbh->prepare("SELECT COUNT(*) FROM likes WHERE user_id = :user_id AND image_id = :image_id");
