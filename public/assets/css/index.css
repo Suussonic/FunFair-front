@@ -32,6 +32,7 @@ p {
 
 nav {
   margin-top: 20px;
+  align-self: flex-end;
 }
 
 nav a {
