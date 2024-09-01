@@ -47,7 +47,7 @@ if (isset($_POST['captcha_answer']) && isset($_POST['captcha_id'])) {
                 'cle' => $cle,
             ]);
 
-            /*$objet = 'Email de Confirmation';
+            $objet = 'Email de Confirmation';
             $body = '
                     <!DOCTYPE html>
                     <html lang="fr">
@@ -119,8 +119,8 @@ if (isset($_POST['captcha_answer']) && isset($_POST['captcha_id'])) {
                         </div>
                     </body>
                     </html>';
-            sendmail($email, $objet, $body);
-            */
+            //sendmail($email, $objet, $body);
+            
 
             header("Location: /login");
             exit;
