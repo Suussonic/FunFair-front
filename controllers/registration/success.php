@@ -14,7 +14,7 @@
 
     function nouvelleReservation($quantity, $idstripe, $unitprice, $email, $date, $heure, $dbh): int //int =  retourne un int
     {
-        header("Location: ../index-home.php");
+        
         $query = $dbh->prepare("SELECT count(id) as total FROM reservations");
         $query->execute();
         $result = $query->fetch(PDO::FETCH_ASSOC);
@@ -30,7 +30,7 @@
         $query -> bindParam(':heure', $heure);
         $query -> bindParam(':email', $email);
         $query -> execute();
-
+        header("Location: ../index-home.php");
         return $rowid;
     }
 
