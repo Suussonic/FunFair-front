@@ -2,7 +2,7 @@
 error_reporting(E_ALL); 
 ini_set("display_errors", 1);
 include_once('models/Database.php');
-include_once('../logs.php');
+include('logs.php');
 
 $errorInfo = false;
 
