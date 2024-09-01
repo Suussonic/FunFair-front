@@ -17,10 +17,10 @@
         
         $query = $dbh->prepare("SELECT count(id) as total FROM reservations");
         $query->execute();
-       
+        
         $result = $query->fetch(PDO::FETCH_ASSOC);
         $rowid = $result["total"] + 1;
-        
+        var_dump($rowid);
         $attraction = getAttractionIdByStripeId($idstripe);
         $total = ($unitprice * $quantity)/100;
         $query = $dbh -> prepare("INSERT INTO reservations (id, attractionid, montant, quantity, jour, heure, email) VALUES(:id, :attraction, :montant, :quantity, :jour, :heure, :email)");
