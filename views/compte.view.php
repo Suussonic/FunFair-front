@@ -1,3 +1,53 @@
+<?php
+session_start();
+global $dbh;
+
+// Vérifier si l'utilisateur est connecté et a un ID défini dans la session
+if (!isset($_SESSION['userId'])) {
+    die("Vous devez être connecté pour accéder à cette page.");
+}
+
+// Inclure le fichier de connexion à la base de données
+include_once('models/Database.php');
+
+// Vérifier si le formulaire a été soumis
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $editUserSql = '
+        UPDATE users
+        SET firstname = :firstname,
+            lastname = :lastname,
+            email = :email,
+            gender = :gender
+        WHERE id = :id
+    ';
+
+    $preparedEditUser = $dbh->prepare($editUserSql);
+    $preparedEditUser->execute([
+        'firstname' => $_POST['firstname'],
+        'lastname' => $_POST['lastname'],
+        'email' => $_POST['email'],
+        'gender' => $_POST['gender'],
+        'id' => $_SESSION['userId']
+    ]);
+
+    // Mettre à jour les variables de session après la mise à jour réussie
+    $_SESSION['firstname'] = $_POST['firstname'];
+    $_SESSION['lastname'] = $_POST['lastname'];
+    $_SESSION['email'] = $_POST['email'];
+    $_SESSION['gender'] = $_POST['gender'];
+}
+
+// Récupérer les données actuelles de l'utilisateur
+$getUser = "SELECT id, firstname, lastname, email, gender FROM users WHERE id = :id";
+
+$preparedGetUser = $dbh->prepare($getUser);
+$preparedGetUser->execute([
+    'id' => $_SESSION['userId']
+]);
+
+$user = $preparedGetUser->fetch(PDO::FETCH_ASSOC);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,20 +55,11 @@
     <title>Mon compte</title>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="../register/form.php">Créer compte</a></li>
-                <li><a href="../login/loginForm.php">Login</a></li>
-                <li><a href="../account/account.php">Mon compte</a></li>
-                <li><a href="../logout.php">Se deconnecter</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <h1>Bienvenue <?php echo $_SESSION['firstname'] . ' ' . $_SESSION['lastname']; ?></h1>
+    <h1>Bienvenue <?php echo htmlspecialchars($_SESSION['firstname']) . ' ' . htmlspecialchars($_SESSION['lastname']); ?></h1>
 
     <form action="" method="POST">
+        <!-- PRENOM -->
         <div>
             <label for="firstname">Prenom</label>
             <input
@@ -26,30 +67,33 @@
                 type="text"
                 name="firstname"
                 placeholder="Prenom"
-                value="<?php echo $user['firstname']; ?>"
+                value="<?php echo htmlspecialchars($user['firstname']); ?>"
+                required
             >
         </div>
-        <!--  NOM  -->
+        <!-- NOM -->
         <div>
             <label for="lastname">Nom</label>
             <input 
                 id="lastname" 
                 type="text" 
                 name="lastname" 
-                value="<?php echo $user['lastname']; ?>"
+                value="<?php echo htmlspecialchars($user['lastname']); ?>"
+                required
             >
         </div>
-        <!--  EMAIL  -->
+        <!-- EMAIL -->
         <div>
             <label for="email">Email</label>
             <input 
                 id="email" 
                 type="email" 
                 name="email" 
-                value="<?php echo $user['email']; ?>"
+                value="<?php echo htmlspecialchars($user['email']); ?>"
+                required
             >
         </div>
-        <!--  GENRE (RADIO button)  -->
+        <!-- GENRE (RADIO button) -->
         <div>
             <label for="man">Homme</label>
             <input
