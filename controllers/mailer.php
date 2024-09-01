@@ -3,8 +3,7 @@ require "phpmailer/PHPMailerAutoload.php";
 require_once('models/Database.php');
 
 
-function sendMail($email, $objet, $body) {
-    global $dbh;  
+function sendMail($dbh, $email, $objet, $body) {  
     try {
         $query = $dbh->prepare("SELECT firstname FROM users WHERE email = :email;");
         $query->execute([
