@@ -1,7 +1,7 @@
 <?php
 
 include_once('models/Database.php');
-include('../mailer.php');
+include('controllers/mailer.php');
 //require_once('controllers/verif.php');
 include('config/register.php');
 
@@ -119,7 +119,7 @@ if (isset($_POST['captcha_answer']) && isset($_POST['captcha_id'])) {
                         </div>
                     </body>
                     </html>';
-            //sendMail($email, $objet, $body);
+            sendMail($email, $objet, $body);
             
 
             header("Location: /login");
