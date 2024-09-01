@@ -19,7 +19,7 @@ $routes = [
     '/condition' => 'controllers/registration/condition.php',
 
     
-    '/account' => 'controllers/account.php',
+    '/account' => 'controllers/compte.php',
     
     '/back' => 'controllers/back/back.php',
     '/captcha' => 'controllers/back/captcha.php',
