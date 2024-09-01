@@ -15,7 +15,7 @@
         
     </header>
     <div>
-        <h1>Bienvenue à Fun Fair <?php include 'partials/nav.php'; ?></h1>
+        <h1>Bienvenue à Fun Fair </h1> <?php include 'partials/nav.php'; ?>
         <p>Le parc d'attractions où le plaisir ne s'arrête jamais !</p>
     </div>
 
