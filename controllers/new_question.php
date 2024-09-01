@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt = $dbh->prepare("INSERT INTO forum (title, description, content, id_author, name_author) VALUES (?, ?, ?, ?, ?)");
     $stmt->execute([$title, $description, $content, $id_author, $name_author]);
 
-    header("Location: forum.php");
+    header("Location: /forum");
     exit;
 }
 ?>
