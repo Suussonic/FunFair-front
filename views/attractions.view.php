@@ -32,7 +32,7 @@
             <p class="age-requirement">Âge minimum: 5+</p>
             <a class="reserve-button" href="/checkout?name=La+Grande+Roue&stripeid=lagranderoue">Réserver</a>
         </div>
-        <div class="attraction-item" data-age="15">
+        <div class="attraction-item" data-age="10">
             <h2>Intimidator 305</h2>
             <p>Des sensations fortes garanties pour les amateurs d'adrénaline.</p>
             <p class="age-requirement">Âge minimum: 10+</p>
