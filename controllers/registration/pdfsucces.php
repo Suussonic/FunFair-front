@@ -1,10 +1,10 @@
 <?php
 require('../../fpdf186/fpdf.php');
 
-// Classe PDF personnalisée
+
 class PDF extends FPDF
 {
-    // En-tête du document PDF
+
     function Header()
     {
         $this->SetFont('Arial', 'B', 14);
@@ -12,13 +12,13 @@ class PDF extends FPDF
         $this->Ln(10);
     }
 
-    // Fonction pour afficher les détails de la réservation
+   
     function ReservationTable($reservation)
     {
-        // Largeurs des colonnes
+        
         $w = array(40, 150);
 
-        // Affichage des données de la réservation
+        
         $this->SetFont('Arial', '', 12);
         
         $this->Cell($w[0], 6, 'Attraction:', 1);
@@ -47,25 +47,25 @@ class PDF extends FPDF
     }
 }
 
-// Vérifier si les paramètres GET sont passés
+
 if (!isset($_GET['q']) || !isset($_GET['i']) || !isset($_GET['p']) || !isset($_GET['email']) || !isset($_GET['date']) || !isset($_GET['heure'])) {
     die("Paramètres manquants.");
 }
 
 $reservation = [
-    'attraction_name' => htmlspecialchars($_GET['i']), // Nom de l'attraction
-    'montant' => htmlspecialchars($_GET['p']),         // Montant
-    'quantity' => htmlspecialchars($_GET['q']),        // Quantité
-    'jour' => htmlspecialchars($_GET['date']),         // Date
-    'heure' => htmlspecialchars($_GET['heure']),       // Heure
-    'email' => htmlspecialchars($_GET['email']),       // Email
+    'attraction_name' => htmlspecialchars($_GET['i']), 
+    'montant' => htmlspecialchars($_GET['p']),         
+    'quantity' => htmlspecialchars($_GET['q']),        
+    'jour' => htmlspecialchars($_GET['date']),         
+    'heure' => htmlspecialchars($_GET['heure']),      
+    'email' => htmlspecialchars($_GET['email']),      
 ];
 
-// Générer le PDF
+
 $pdf = new PDF();
 $pdf->AddPage();
 $pdf->ReservationTable($reservation);
 
-// Forcer le téléchargement du fichier PDF
+
 $pdf->Output('D', 'reservation_' . $reservation['email'] . '_' . $reservation['jour'] . '.pdf');
 ?>
