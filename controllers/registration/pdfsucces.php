@@ -3,8 +3,6 @@ session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// Inclure le fichier de connexion à la base de données
-include_once('models/Database.php');
 
 // Inclure la bibliothèque FPDF
 require('../fpdf186/fpdf.php');
