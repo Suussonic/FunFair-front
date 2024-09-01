@@ -1,6 +1,6 @@
 <?php
 require_once '../../stripe/init.php';
-$YOUR_DOMAIN = 'http://funfair.ovh/';
+$YOUR_DOMAIN = 'https://funfair.ovh/';
 $quantity = $_POST['people'];
 $email = $_POST['email'];
 $date = $_POST['date'];
@@ -32,7 +32,7 @@ try {
         ]],
 
         'mode' => 'payment',
-        'success_url' => $YOUR_DOMAIN . '/controllers/registration/success.php?q='.$quantity.'&i='.$_POST['lookup_key'].'&p='.$prices->data[0]['unit_amount'].'&email='.$email.'&date='.$date.'&heure='.$heure,
+        'success_url' => $YOUR_DOMAIN . 'controllers/registration/success.php?q='.$quantity.'&i='.$_POST['lookup_key'].'&p='.$prices->data[0]['unit_amount'].'&email='.$email.'&date='.$date.'&heure='.$heure,
         'cancel_url' => $YOUR_DOMAIN . '/',
     ]);
     header("HTTP/1.1 303 See Other");

@@ -1,23 +1,16 @@
 <?php
 session_start();
 include 'models/Database.php';
-
 $db = new Database();
 $dbh = $db->dbh;
-
-
 $user_id = $_SESSION['user_id'];
-
 $sql = "SELECT first_name, last_name, email, username, phone, address FROM users WHERE id = :id";
 $stmt = $dbh->prepare($sql);
 $stmt->bindParam(':id', $user_id, PDO::PARAM_INT);
 $stmt->execute();
-
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
 include 'header.php'; 
 ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -43,8 +36,5 @@ include 'header.php';
         </div>
     </div>
 </body>
+ <?php include 'partials/footer.php'; ?>
 </html>
-
-<?php
-include 'footer'; 
-?>
