@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $title = trim($_POST['title']);
     $description = trim($_POST['description']);
     $content = trim($_POST['content']);
-    $id_author = $_SESSION['userId'];
+    $id_author = $_SESSION['id'];
     $name_author = $_SESSION['firstname'];
 
     // Vérification que les champs ne sont pas vides
