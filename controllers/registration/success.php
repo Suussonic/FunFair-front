@@ -1,7 +1,7 @@
 <?php
 
-    $user = 'rot';
-    $password = 'web';
+    $user = 'root';
+    $password = 'root';
     
     try {
         $dbh = new PDO('mysql:host=funfair.ovh;dbname=pa;charset=utf8mb4', $user, $password);
