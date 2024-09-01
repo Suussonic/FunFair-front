@@ -1,7 +1,7 @@
 <?php
 
 include_once('models/Database.php');
-include('controllers/mailer.php');
+include('../mailer.php');
 //require_once('controllers/verif.php');
 include('config/register.php');
 
