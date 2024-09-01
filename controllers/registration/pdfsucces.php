@@ -48,22 +48,26 @@ class PDF extends FPDF
 }
 
 // Récupérer les détails de la réservation à partir de la base de données
-function getReservationDetails($reservationId, $dbh) {
+function getReservationDetails($jour, $heure, $email, $dbh) {
     $query = $dbh->prepare("SELECT r.id, r.attractionid, r.montant, r.quantity, r.jour, r.heure, r.email, a.nom AS attraction_name 
                             FROM reservations r 
                             JOIN attractions a ON r.attractionid = a.id 
-                            WHERE r.id = :id");
-    $query->bindParam(':id', $reservationId, PDO::PARAM_INT);
+                            WHERE r.jour = :jour AND r.heure = :heure AND r.email = :email");
+    $query->bindParam(':jour', $jour, PDO::PARAM_STR);
+    $query->bindParam(':heure', $heure, PDO::PARAM_STR);
+    $query->bindParam(':email', $email, PDO::PARAM_STR);
     $query->execute();
     return $query->fetch(PDO::FETCH_ASSOC);
 }
 
-// Supposons que l'ID de la réservation soit passé par un paramètre GET
-if (!isset($_GET['reservation_id'])) {
-    die("ID de réservation manquant.");
+// Vérifier si les paramètres nécessaires sont passés
+if (!isset($_GET['jour']) || !isset($_GET['heure']) || !isset($_GET['email'])) {
+    die("Paramètres manquants.");
 }
 
-$reservationId = $_GET['reservation_id'];
+$jour = $_GET['jour'];
+$heure = $_GET['heure'];
+$email = $_GET['email'];
 
 // Connexion à la base de données (vous pouvez adapter cette partie selon votre configuration)
 $user = 'root';
@@ -76,10 +80,10 @@ try {
 }
 
 // Récupérer les détails de la réservation
-$reservation = getReservationDetails($reservationId, $dbh);
+$reservation = getReservationDetails($jour, $heure, $email, $dbh);
 
 if (!$reservation) {
-    die("Aucune réservation trouvée pour cet ID.");
+    die("Aucune réservation trouvée pour ces paramètres.");
 }
 
 // Générer le PDF
