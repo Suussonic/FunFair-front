@@ -35,7 +35,7 @@
             $has_liked = $stmt->fetchColumn() > 0;
 
             // Afficher le bouton avec l'image appropriée (Like ou Un-like)
-            echo "<form action='like_image.php' method='post' style='display: inline;'>";
+            echo "<form action='/controllers/concours/like_image.php' method='post' style='display: inline;'>";
             echo "<input type='hidden' name='image_id' value='" . $row['id'] . "'>";
             echo "<input type='hidden' name='action' value='" . ($has_liked ? 'unlike' : 'like') . "'>";
             echo "<button type='submit' style='border: none; background: none;'>";
@@ -55,7 +55,7 @@
     ?>
 </div>
 
-<form id="uploadCanvasForm" action="process_drawing.php" method="post">
+<form id="uploadCanvasForm" action="/controllers/concours/process_drawing.php" method="post">
     <input type="hidden" name="canvasData" id="canvasData">
     <input type="submit" name="upload" value="Upload" style="display:none;">
 </form>
