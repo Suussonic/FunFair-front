@@ -77,11 +77,11 @@ nav a:hover {
   color: #ffa07a;
 }
 
-link {
+ul {
   margin-top: 20px;
 }
 
-link li a {
+ul li a {
   color: #ff6f61;
   text-decoration: none;
   font-size: 1.2em;
@@ -89,7 +89,7 @@ link li a {
   transition: color 0.3s;
 }
 
-link li a:hover {
+ul li a:hover {
   color: #ffa07a;
 }
 

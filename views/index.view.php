@@ -20,7 +20,7 @@
     </div>
 
     <h3>Liens rapides</h3>
-            <ul id="link">
+            <ul>
                 <li><a href="/attractions">Attractions</a></li>
                 <li><a href="/horaire">Horaires</a></li>
                 <li><a href="/billets">Billets</a></li>
