@@ -1,5 +1,5 @@
 <?php
-require_once('models/Database.php');
+require_once('../../models/Database.php');
 
 if (!isset($_SESSION['id'])) {
     die("Vous devez être connecté pour liker ou un-liker une image.");
