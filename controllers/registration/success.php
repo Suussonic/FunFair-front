@@ -49,6 +49,8 @@
     //construire le pdf avec fpdf ou un truc du genre 
     //envoiyer par mail
     //ou telecharger
+    
+    require_once 'pdfsucces.php';
     //ou les deux
     }
     require_once('../../views/registration/success.view.php');
