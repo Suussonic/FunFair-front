@@ -104,5 +104,8 @@ $user = $preparedGetUser->fetch();
         <input type="submit" value="Modifier">
 
     </form>
+    <div style="margin-top: 20px;">
+        <a href="http://funfair.ovh" class="button-link">Aller à Funfair</a>
+    </div>
 </body>
 </html>
