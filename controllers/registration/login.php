@@ -37,10 +37,12 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
         $_SESSION['lastname'] = $user['lastname'];
         $_SESSION['user'] = $user;
 
-        // --------------------------------------------
+        // -------------------------------------------- LOGS
+        
+        $action = 'connexion';
+
         $ip = $_SERVER['REMOTE_ADDR'];
         $date_now = date('Y-m-d H:i:s');
-        $action = 'connexion';
         $firstname = isset($_SESSION['firstname']) ? $_SESSION['firstname'] : '';
         $email = isset($_SESSION['user']['email']) ? $_SESSION['user']['email'] : '';
     
@@ -58,7 +60,10 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
         } catch (PDOException $e) {
             die('Erreur lors de l\'insertion du log : ' . $e->getMessage());
         }
+
         // --------------------------------------------
+
+
         header('location:/'); // Rediriger vers la page d'accueil
         exit;
     } else {
