@@ -3,7 +3,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 require_once('models/Database.php');
-
+session_start();
 if (isset($_POST['upload'])) {
     if(!isset($_SESSION['id'])) {
         header('Location: https://funfair.ovh/login');
