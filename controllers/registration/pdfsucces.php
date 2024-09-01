@@ -5,7 +5,7 @@ ini_set('display_errors', 1);
 
 
 // Inclure la bibliothèque FPDF
-require('../fpdf186/fpdf.php');
+require('../../fpdf186/fpdf.php');
 
 // Récupérer les informations de réservation pour l'utilisateur
 $reservationId = $_GET['reservation_id'];
