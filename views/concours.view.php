@@ -14,6 +14,7 @@
     <input type="submit" name="upload" value="Upload">
 </form>
 <button id="openCanvasBtn">Dessiner</button>
+<h2><a href="/">Retourner à l'accueil</a></h2>
 
 <h2>Concours de dessin</h2>
 <div class="gallery">
