@@ -2,6 +2,10 @@
 include 'models/Database.php';
 session_start();
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 $question_id = $_GET['id'];
 $stmt = $dbh->prepare("SELECT * FROM question WHERE id = ?");
 $stmt->execute([$question_id]);
