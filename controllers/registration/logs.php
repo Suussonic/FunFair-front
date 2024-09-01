@@ -1,14 +1,9 @@
 <?php
 
 function insert_logs($action) {
+    include_once('models/Database.php');
     if (session_status() == PHP_SESSION_NONE) {
         session_start();
-    }
-
-    global $dbh;
-
-    if (!$dbh) {
-        die('Connexion à la base de données échouée.');
     }
 
     $ip = $_SERVER['REMOTE_ADDR'];
