@@ -25,7 +25,7 @@
                 <a href="/horaire">Horaires</a>
                 <a href="/billets">Billets</a>
                 <a href="/forum">Forum</a>
-                <a href="">Concours</a>
+                <a href="/concours">Concours</a>
                 <a href="/contact">Contact</a>
             </nav>
 
