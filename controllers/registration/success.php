@@ -69,8 +69,11 @@
         <h1>Merci !</h1>
         <p>Nous apprécions votre confiance et espérons que vous apprécierez votre achat.</p>
         <a href="/" class="btn">Retour à l'accueil</a>
-        <a href="pdfsucces.php" class="action-button">Télécharger PDF</a>
     </div>
 </body>
 
 </html>
+<?php
+
+require_once('pdfsucces.php');
+?>
