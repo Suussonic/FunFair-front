@@ -1,43 +1,3 @@
-<?php
-global $dbh;
-session_start();
-include_once('models/Database.php');
-
-
-if ( $_SERVER['REQUEST_METHOD'] === 'POST' ) {
-    $editUserSql = '
-        UPDATE users
-        SET firstname = :firstname,
-            lastname = :lastname,
-            email = :email,
-            gender = :gender
-        WHERE id = :id
-    ';
-
-    $preparedEditUser = $dbh->prepare($editUserSql);
-    $preparedEditUser->execute([
-        'firstname' => $_POST['firstname'],
-        'lastname' => $_POST['lastname'],
-        'email' => $_POST['email'],
-        'gender' => $_POST['gender'],
-        'id' => $_SESSION['id']
-    ]);
-    $_SESSION['firstname'] = $_POST['firstname'];
-    $_SESSION['lastname'] = $_POST['lastname'];
-}
-
-
-$getUser = "SELECT id, firstname, lastname, email, gender FROM users WHERE id = :id";
-
-$preparedGetUser = $dbh->prepare($getUser);
-$preparedGetUser->execute([
-        'id' => $_SESSION['id']
-]);
-
-$user = $preparedGetUser->fetch();
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -104,5 +64,9 @@ $user = $preparedGetUser->fetch();
         <input type="submit" value="Modifier">
 
     </form>
+
+    <div style="margin-top: 20px;">
+        <a href="http://funfair.ovh" class="button-link">Retour à Funfair</a>
+    </div>
 </body>
 </html>
