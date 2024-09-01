@@ -2,7 +2,7 @@
 
 include_once('models/Database.php');
 include('controllers/mailer.php');
-//require_once('controllers/verif.php');
+
 include('config/register.php');
 
 ini_set('display_errors', 1);
@@ -14,14 +14,14 @@ if (isset($_POST['captcha_answer']) && isset($_POST['captcha_id'])) {
     $captcha_id = $_POST['captcha_id'];
     $captcha_answer = trim($_POST['captcha_answer']);
 
-    // Récupérer la réponse correcte depuis la base de données
+  
     $sql = "SELECT r FROM captcha WHERE id = :captcha_id";
     $stmt = $dbh->prepare($sql);
     $stmt->bindParam(':captcha_id', $captcha_id, PDO::PARAM_INT);
     $stmt->execute();
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    // Vérifier si la réponse est correcte
+  
     if ($row && strcasecmp($row['r'], $captcha_answer) == 0) {
         $firstname = $_POST['firstname'];
         $lastname = $_POST['lastname'];
@@ -31,7 +31,7 @@ if (isset($_POST['captcha_answer']) && isset($_POST['captcha_id'])) {
         $confirme = 0;
         $cle = rand(1000000, 9000000);
 
-        // Vérifier la validité du mot de passe
+      
         if (verifierMotDePasse($pass)) {
             $hashedPassword = password_hash($pass, PASSWORD_BCRYPT);
 
@@ -51,6 +51,7 @@ if (isset($_POST['captcha_answer']) && isset($_POST['captcha_id'])) {
                 'cle' => $cle,
             ]);
 
+            $userId = $dbh->lastInsertId();
             $objet = 'Email de Confirmation';
             $body = '
                     <!DOCTYPE html>
@@ -109,9 +110,9 @@ if (isset($_POST['captcha_answer']) && isset($_POST['captcha_id'])) {
                             <div class="content">
                                 <p>Bonjour,</p>
                                 <p>Merci de vous être inscrit sur FunFair. Pour finaliser votre inscription et vérifier votre adresse e-mail, veuillez cliquer sur le bouton ci-dessous :</p>
-                                <a href="https://funfair.ovh/controllers/verif.php?id='.$_SESSION['id'].'&cle='.$cle.'" class="button">Vérifier mon e-mail</a>
+                                <a href="https://funfair.ovh/verif.php?id='.$userId.'&cle='.$cle.'" class="button">Vérifier mon e-mail</a>
                                 <p>Si le bouton ne fonctionne pas, copiez et collez le lien suivant dans votre navigateur :</p>
-                                <p><a href="https://funfair.ovh/controllers/verif.php?id='.$_SESSION['id'].'&cle='.$cle.'">https://funfair.ovh/controllers/verif.php?id='.$_SESSION['id'].'&cle='.$cle.'</a></p>
+                                <p><a href="https://funfair.ovh/verif.php?id='.$userId.'&cle='.$cle.'">https://funfair.ovh/verif.php?id='.$userId.'&cle='.$cle.'</a></p>
                                 <p>Si vous n\'avez pas créé de compte sur FunFair, veuillez ignorer cet e-mail.</p>
                             </div>
                             <div class="footer">

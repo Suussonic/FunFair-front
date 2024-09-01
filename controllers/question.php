@@ -2,8 +2,12 @@
 include 'models/Database.php';
 session_start();
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 $question_id = $_GET['id'];
-$stmt = $dbh->prepare("SELECT * FROM forum WHERE id = ?");
+$stmt = $dbh->prepare("SELECT * FROM question WHERE id = ?");
 $stmt->execute([$question_id]);
 $question = $stmt->fetch();
 
@@ -39,7 +43,7 @@ $responses = $stmt_responses->fetchAll();
     <?php endforeach; ?>
 </ul>
 
-<?php if (isset($_SESSION['userId'])): ?>
+<?php if (isset($_SESSION['id'])): ?>
     <h2>Répondre à la question</h2>
     <form method="post" action="respond.php">
         <textarea name="content" placeholder="Votre réponse" required></textarea>

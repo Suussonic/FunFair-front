@@ -46,11 +46,52 @@
 
     function sendreservation($id): void
     {
-    //construire le pdf avec fpdf ou un truc du genre 
-    //envoiyer par mail
-    //ou telecharger
+  
+    global $dbh;
+
+   
+    $query = $dbh->prepare("SELECT r.*, a.nom as attraction_name FROM reservations r JOIN attractions a ON r.attractionid = a.id WHERE r.id = :id");
+    $query->bindParam(':id', $id);
+    $query->execute();
+    $reservation = $query->fetch(PDO::FETCH_ASSOC);
+
+    if (!$reservation) {
+        die("Réservation introuvable.");
+    }
+
+   
+    require('../../fpdf186/fpdf.php');
+
+  
+    $pdf = new FPDF();
+    $pdf->AddPage();
+    $pdf->SetFont('Arial', 'B', 14);
+    $pdf->Cell(0, 10, 'Confirmation de Réservation', 0, 1, 'C');
+    $pdf->Ln(10);
+
+    $pdf->SetFont('Arial', '', 12);
+    $pdf->Cell(40, 6, 'Attraction:', 1);
+    $pdf->Cell(150, 6, $reservation['attraction_name'], 1);
+    $pdf->Ln();
+    $pdf->Cell(40, 6, 'Montant:', 1);
+    $pdf->Cell(150, 6, $reservation['montant'] . ' EUR', 1);
+    $pdf->Ln();
+    $pdf->Cell(40, 6, 'Quantité:', 1);
+    $pdf->Cell(150, 6, $reservation['quantity'], 1);
+    $pdf->Ln();
+    $pdf->Cell(40, 6, 'Date:', 1);
+    $pdf->Cell(150, 6, $reservation['jour'], 1);
+    $pdf->Ln();
+    $pdf->Cell(40, 6, 'Heure:', 1);
+    $pdf->Cell(150, 6, $reservation['heure'], 1);
+    $pdf->Ln();
+    $pdf->Cell(40, 6, 'Email:', 1);
+    $pdf->Cell(150, 6, $reservation['email'], 1);
+    $pdf->Ln();
+
     
-    //ou les deux
+    $pdf->Output('D', 'reservation_' . $reservation['email'] . '_' . $reservation['jour'] . '.pdf');
+    
     }
 ?>
 <!DOCTYPE html>
@@ -73,7 +114,3 @@
 </body>
 
 </html>
-<?php
-
-require_once('pdfsucces.php');
-?>

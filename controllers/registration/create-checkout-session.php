@@ -11,7 +11,7 @@ $stripeSecretKey = "sk_test_51PrNEeIpuwwZKBGaVhN6YsIQeDn7BQ8CEaBNCLrB9Iw8IFX0Q5y
 Stripe::setApiKey($stripeSecretKey);
 
 $prices = \Stripe\Price::all([
-    'lookup_keys' => [$_POST['lookup_key']], // This should be an array of lookup keys
+    'lookup_keys' => [$_POST['lookup_key']],
     'expand' => ['data.product'],
 ]);
 
@@ -21,8 +21,7 @@ if (empty($prices->data)) {
     exit;
 }
 
-$priceId = $prices->data[0]->id; // Access the first price's ID
-
+$priceId = $prices->data[0]->id; 
 try {
     
     $checkout_session = \Stripe\Checkout\Session::create([
