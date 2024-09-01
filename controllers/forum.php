@@ -24,7 +24,7 @@ $questions = $stmt->fetchAll();
 <ul>
     <?php foreach ($questions as $question): ?>
         <li>
-            <a href="question.php?id=<?= $question['id'] ?>">
+            <a href="fquestion.php?id=<?= $question['id'] ?>">
                 <strong><?= htmlspecialchars($question['title']) ?></strong><br>
                 <?= htmlspecialchars($question['description']) ?><br>
                 <small>Posté par <?= htmlspecialchars($question['name_author']) ?> le <?= $question['date_publication'] ?></small>
