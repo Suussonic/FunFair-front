@@ -12,10 +12,10 @@
 
 <body>
     <header>
-        
+        <?php include 'partials/nav.php'; ?>
     </header>
     <div>
-        <h1>Bienvenue à Fun Fair </h1> <?php include 'partials/nav.php'; ?>
+        <h1>Bienvenue à Fun Fair </h1> 
         <p>Le parc d'attractions où le plaisir ne s'arrête jamais !</p>
     </div>
 
