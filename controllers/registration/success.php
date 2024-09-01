@@ -22,20 +22,23 @@
         $rowid = $result["total"] + 1;
         $attraction = getAttractionIdByStripeId($idstripe);
         $total = ($unitprice * $quantity)/100;
-        try{
-            $query = $dbh -> prepare("INSERT INTO reservations (id, attractionid, montant, quantity, jour, heure, email) VALUES(:id, :attraction, :montant, :quantity, :jour, :heure, :email)");
-            $query -> bindParam(':id', $rowid);
-            $query -> bindParam(':attraction',$attraction);
-            $query -> bindParam(':montant', $total);
-            $query -> bindParam(':quantity', $quantity);
-            $query -> bindParam(':jour', $date);
-            $query -> bindParam(':heure', $heure);
-            $query -> bindParam(':email', $email);
-            $query -> execute();
-        }catch(Exception $e){
-            var_dump($e);
-        }
+        var_dump($quantity);
+        var_dump($attraction);
+        var_dump($total);
+        var_dump($date);
+        var_dump($heure);
+        var_dump($email);
+        var_dump($rowid);
 
+        $query = $dbh -> prepare("INSERT INTO reservations (id, attractionid, montant, quantity, jour, heure, email) VALUES(:id, :attraction, :montant, :quantity, :jour, :heure, :email)");
+        $query -> bindParam(':id', $rowid);
+        $query -> bindParam(':attraction',$attraction);
+        $query -> bindParam(':montant', $total);
+        $query -> bindParam(':quantity', $quantity);
+        $query -> bindParam(':jour', $date);
+        $query -> bindParam(':heure', $heure);
+        $query -> bindParam(':email', $email);
+        $query -> execute();
         return $rowid;
     }
 
