@@ -16,13 +16,12 @@
     </header>
     <h3>Liens rapides</h3>
             <ul>
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="attractions.html">Attractions</a></li>
-                <li><a href="horaires.html">Horaires</a></li>
-                <li><a href="billets.html">Billets</a></li>
-                <li><a href="avis.html">Laissez un Avis</a></li>
-                <li><a href="reserver.html">Réserver une Attraction</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="/">Accueil</a></li>
+                <li><a href="/attractions">Attractions</a></li>
+                <li><a href="/horaires">Horaires</a></li>
+                <li><a href="/billets">Billets</a></li>
+                <li><a href="/avis">Laissez un Avis</a></li>
+                <li><a href="/contact">Contact</a></li>
             </ul>
     <div>
         <h1>Bienvenue à Fun Fair</h1>
