@@ -6,7 +6,8 @@ $routes = [
     '/billets' => 'controllers/billets.php',
     '/contact' => 'controllers/contact.php',
     '/horaire' => 'controllers/horaire.php',
-    
+    '/concours' => 'controllers/concours.php',
+
     '/checkout' => 'controllers/registration/checkout.php',
     '/checkoutsession' => 'controllers/registration/create-checkout-session.php',
     '/success' => 'controllers/registration/success.php',
