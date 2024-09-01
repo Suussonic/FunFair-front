@@ -47,44 +47,21 @@ class PDF extends FPDF
     }
 }
 
-// Récupérer les détails de la réservation à partir de la base de données
-function getReservationDetails($jour, $heure, $email, $dbh) {
-    $query = $dbh->prepare("SELECT r.id, r.attractionid, r.montant, r.quantity, r.jour, r.heure, r.email, a.nom AS attraction_name 
-                            FROM reservations r 
-                            JOIN attractions a ON r.attractionid = a.id 
-                            WHERE r.jour = :jour AND r.heure = :heure AND r.email = :email");
-    $query->bindParam(':jour', $jour, PDO::PARAM_STR);
-    $query->bindParam(':heure', $heure, PDO::PARAM_STR);
-    $query->bindParam(':email', $email, PDO::PARAM_STR);
-    $query->execute();
-    return $query->fetch(PDO::FETCH_ASSOC);
-}
+// Suppression de la base de données, car les informations sont passées directement par GET
 
-// Vérifier si les paramètres nécessaires sont passés
-if (!isset($_GET['jour']) || !isset($_GET['heure']) || !isset($_GET['email'])) {
+// Vérifier si les paramètres GET sont passés
+if (!isset($_GET['q']) || !isset($_GET['i']) || !isset($_GET['p']) || !isset($_GET['email']) || !isset($_GET['date']) || !isset($_GET['heure'])) {
     die("Paramètres manquants.");
 }
 
-$jour = $_GET['jour'];
-$heure = $_GET['heure'];
-$email = $_GET['email'];
-
-// Connexion à la base de données (vous pouvez adapter cette partie selon votre configuration)
-$user = 'root';
-$password = 'root';
-
-try {
-    $dbh = new PDO('mysql:host=localhost;dbname=pa;charset=utf8mb4', $user, $password);
-} catch (PDOException $e) {
-    die("Erreur de connexion à la base de données : " . $e->getMessage());
-}
-
-// Récupérer les détails de la réservation
-$reservation = getReservationDetails($jour, $heure, $email, $dbh);
-
-if (!$reservation) {
-    die("Aucune réservation trouvée pour ces paramètres.");
-}
+$reservation = [
+    'attraction_name' => $_GET['i'], // Nom de l'attraction
+    'montant' => $_GET['p'],         // Montant
+    'quantity' => $_GET['q'],        // Quantité
+    'jour' => $_GET['date'],         // Date
+    'heure' => $_GET['heure'],       // Heure
+    'email' => $_GET['email'],       // Email
+];
 
 // Générer le PDF
 $pdf = new PDF();

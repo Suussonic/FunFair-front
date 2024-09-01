@@ -3,15 +3,18 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-require 'views/avis.view.php';
 
-
+// Inclure le fichier de configuration de la base de données et démarrer la session si elle n'est pas déjà démarrée
 include 'models/Database.php';
-session_start();
 
-// Inclure le fichier de configuration de la base de données et démarrer la session
-include 'models/Database.php';
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+// Vérifier si la connexion à la base de données est bien établie
+if (!isset($connexion)) {
+    die("Erreur : La connexion à la base de données n'est pas définie.");
+}
 
 // Vérifier si le formulaire a été soumis
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
