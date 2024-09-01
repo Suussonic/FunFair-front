@@ -6,7 +6,7 @@
 </head>
 <body>
 
-    <h1>Bienvenue <?php echo htmlspecialchars($_SESSION['firstname']) . ' ' . htmlspecialchars($_SESSION['lastname']); ?></h1>
+    <h1>Bienvenue <?php echo htmlspecialchars($_SESSION['firstname'])?></h1>
 
     <form action="" method="POST">
         <!-- PRENOM -->
