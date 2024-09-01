@@ -18,7 +18,7 @@
 <h2>Concours de dessin</h2>
 <div class="gallery">
     <?php
-    $user_id = $_SESSION['user_id'];
+    $user_id = $_SESSION['id'];
 
     if (sizeof($result) > 0) {
         foreach($result as $row) {
