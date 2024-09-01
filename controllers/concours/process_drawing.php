@@ -8,6 +8,9 @@ require_once('../../models/Database.php');
 session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if(!isset($_SESSION['id'])) {
+        header('Location: https://funfair.ovh/login');
+    }
     if (isset($_POST['canvasData']) && !empty($_POST['canvasData'])) {
         // Décoder les données base64
         $image_data = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $_POST['canvasData']));
