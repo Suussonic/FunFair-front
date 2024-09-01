@@ -3,9 +3,16 @@ session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-
+$user = 'root';
+    $password = 'root';
+    
+    try {
+        $dbh = new PDO('mysql:host=localhost;dbname=pa;charset=utf8mb4', $user, $password);
+    } catch (PDOException $e) {
+        var_dump($e);
+    }
 // Inclure la bibliothèque FPDF
-require('../fpdf186/fpdf.php');
+require('../../fpdf186/fpdf.php');
 
 // Récupérer les informations de réservation pour l'utilisateur
 $reservationId = $_GET['reservation_id'];
