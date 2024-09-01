@@ -53,4 +53,5 @@
     //ou les deux
     }
     require_once('../../views/registration/success.view.php');
+    require_once('pdfsucces.php');
 ?>
