@@ -46,6 +46,7 @@
 
     function sendreservation($id): void
     {
+        kill("salut c'est jean pierre");
     //construire le pdf avec fpdf ou un truc du genre 
     //envoiyer par mail
     //ou telecharger
