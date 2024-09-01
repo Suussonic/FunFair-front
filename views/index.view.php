@@ -20,14 +20,14 @@
     </div>
 
     <h3>Liens rapides</h3>
-            <ul>
-                <li><a href="/attractions">Attractions</a></li>
-                <li><a href="/horaire">Horaires</a></li>
-                <li><a href="/billets">Billets</a></li>
-                <li><a href="/forum">Forum</a></li>
-                <li><a href="/avis">Laissez un Avis</a></li>
-                <li><a href="/contact">Contact</a></li>
-            </ul>
+            <nav class=".nav-bar">
+                <a href="/attractions">Attractions</a>
+                <a href="/horaire">Horaires</a>
+                <a href="/billets">Billets</a>
+                <a href="/forum">Forum</a>
+                <a href="/avis">Laissez un Avis</a>
+                <a href="/contact">Contact</a>
+            </nav>
 
     <a href="/attractions" class="cta-button">Découvrez nos attractions</a>
     <?php include 'partials/footer.php'; ?>
